@@ -4,6 +4,15 @@ import {Observable, throwError} from 'rxjs';
 import {catchError, retry} from 'rxjs/operators';
 import {ArticlesServiceService} from "./articles-service.service";
 
+class Article {
+  title: string;
+  body: string;
+
+  constructor(title: string, body: string) {
+    this.title = title;
+    this.body = body;
+  }
+}
 
 @Component({
   selector: 'app-root',
@@ -12,16 +21,21 @@ import {ArticlesServiceService} from "./articles-service.service";
 })
 export class AppComponent implements OnInit {
   title = 'microwave';
-  test: any = "waiting..";
+  articles: any[] = [];
+  fetchResult = "Waiting";
 
 
   constructor(private articlesServiceService: ArticlesServiceService) {
   }
 
   ngOnInit(): void {
-    this.articlesServiceService.getAll().subscribe(result => {
-        this.test = result
-      },
-      error => this.test = "ERROR: " + JSON.stringify(error));
+    this.articlesServiceService.getAllArticles()
+      .subscribe(result => {
+          result = JSON.parse(result);
+          this.articles = result["data"]
+          alert("result: " + JSON.stringify(this.articles))
+          this.fetchResult = "";
+        },
+        error => this.fetchResult = "ERROR: " + JSON.stringify(error));
   }
 }
