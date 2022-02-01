@@ -32,8 +32,8 @@ export class AppComponent implements OnInit {
     this.articlesServiceService.getAllArticles()
       .subscribe(result => {
           result = JSON.parse(result);
-          this.articles = result["data"]
-          alert("result: " + JSON.stringify(this.articles))
+          this.articles = result["data"][0]["attributes"]["articlebody"]
+
           this.fetchResult = "";
         },
         error => this.fetchResult = "ERROR: " + JSON.stringify(error));

@@ -1,0 +1,7 @@
+.MenuIcon {
+  transition: transform .01s;
+}
+
+.MenuIcon:hover {
+  transform: rotate(10deg);
+}
