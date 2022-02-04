@@ -1,0 +1,27 @@
+<div style="display: flex; flex-direction: column; direction: rtl; box-sizing: border-box; padding: 10px">
+
+<div>
+  <div
+    class="main_article_image"
+    [ngStyle]="{
+      'margin':'-3px',
+
+
+      'height':'300px', 'border': 'solid black', 'background-image': 'url('+article?.main_image+')', 'background-size':'cover', 'background-position': 'center'}">
+    <img src="" alt="">
+  </div>
+
+  <div style="padding: 10px">
+    <div style="font-size: 25px;">
+      {{article?.article_title}}
+    </div>
+
+    <div>
+      {{article?.article_body}}
+    </div>
+  </div>
+
+</div>
+
+</div>
+

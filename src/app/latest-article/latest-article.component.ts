@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Apollo} from "apollo-angular";
 import gql from "graphql-tag";
 import {Subscription} from "rxjs";
-import MAIN_ARTICLE_QUERY from "../apollo/main_article";
+import MAIN_ARTICLES_QUERY from "../apollo/main_articles";
+import {Article} from "../Article";
 
 @Component({
   selector: 'latest-article',
@@ -11,40 +12,18 @@ import MAIN_ARTICLE_QUERY from "../apollo/main_article";
 })
 
 export class LatestArticleComponent implements OnInit {
-  data: any = {};
-  title: any = {};
-  main_img: any = {};
-  body: any = {};
-  loading = true;
-  errors: any;
 
 
-  private latestArticle: Subscription | undefined;
+
+@Input("article") article: Article | undefined;
 
 
-  constructor(private apollo: Apollo) {
+  constructor() {
 
   }
 
   ngOnInit(): void {
-    this.latestArticle = this.apollo
-      .watchQuery({
-        query: MAIN_ARTICLE_QUERY
-      })
-      .valueChanges.subscribe(result => {
-        this.data = result.data;
-        console.log(JSON.stringify(result.data))
-
-        this.title = this.data["articles"]["data"][0]["attributes"]["article_title"]
-        this.body = (this.data["articles"]["data"][0]["attributes"]["article_body"])
-          .replace(/<[^>]*>/g, "")
-          // .split('/uploads/').join('http://localhost:1337/uploads/');
-          .substring(0, 100) + "..."
-        this.main_img = "http://localhost:1337"+ this.data["articles"]["data"][0]["attributes"]["main_image"]["data"]["attributes"]["url"]
-
-        this.loading = result.loading;
-        this.errors = result.errors;
-      });
+console.log(JSON.stringify(this.article))
   }
 
 

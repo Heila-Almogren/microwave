@@ -1,9 +1,8 @@
 <div class="main_article_wrapper" style="width: 100%;  border: 3px solid black; margin-top: -3px;
-
 ">
   <div
     class="main_article_image"
-    [ngStyle]="{'border': 'solid black', 'background-image': 'url('+this.main_img+')'}">
+    [ngStyle]="{'border': 'solid black', 'background-image': 'url('+article?.main_image+')'}">
         <img src="" alt="">
 
   </div>
@@ -12,12 +11,12 @@
     >
 
     <div style="font-size: 30px;  ">
-      {{this.title}}
+      {{article?.article_title}}
 
     </div>
     <br>
     <div>
-      {{this.body}}
+      {{article?.article_body}}
     </div>
 
 
@@ -25,3 +24,5 @@
 
 
 </div>
+
+

@@ -1,0 +1,25 @@
+
+top-article {
+  cursor: pointer;
+}
+top-article:hover {
+  transition: transform 0.25s;
+}
+
+top-article:hover {
+  transform: scale(1.01);
+}
+
+@media screen and (min-width: 499px) { /*desktop*/
+
+  .top-articles {
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 500px) { /*mobile*/
+
+  .top-articles {
+    flex-direction: column;
+  }
+}

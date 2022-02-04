@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
-  font-family: myFirstFont;
+  font-family: Yasser;
   src: url("assets/fonts/ArbFONTS-FF Yaseer.otf");
 }
 
@@ -24,12 +24,13 @@ a {
 
 body {
 
-  margin: 0;
+  margin: auto;
   padding: 0;
   width: 100%;
+  max-width: 1200px;
   height: 100%;
   box-sizing: border-box;
-  font-family: myFirstFont, serif;
+  font-family: Yasser, serif;
   position: relative;
 
 }
