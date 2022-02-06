@@ -3,10 +3,10 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError, mergeMap, retry} from 'rxjs/operators';
 import {from, Observable, pipe} from "rxjs";
 import {configvars} from "configvars.dev";
-import {environment} from '../environments/environment';
+import {environment} from '../../environments/environment';
 import {Apollo} from "apollo-angular";
-import ARTICLE from "./apollo/article";
-import MAIN_ARTICLES_QUERY from "./apollo/main_articles";
+import ARTICLE from "../GraphQLQueries/article";
+import MAIN_ARTICLES_QUERY from "../GraphQLQueries/main_articles";
 
 
 @Injectable({

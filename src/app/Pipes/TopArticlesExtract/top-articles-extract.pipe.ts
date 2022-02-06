@@ -25,7 +25,7 @@ export class TopArticlesExtractPipe implements PipeTransform {
           .substring(0, 100) + "..."
 
       case "main_image" :
-        return "http://localhost:1337" + base["main_image"]["data"]?.["attributes"]["url"]
+        return "https://microwave-db.herokuapp.com" + base["main_image"]["data"]?.["attributes"]["url"]
     }
     console.log(JSON.stringify(base))
     return 0;

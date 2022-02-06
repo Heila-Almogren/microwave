@@ -2,8 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Apollo} from "apollo-angular";
 import gql from "graphql-tag";
 import {Subscription} from "rxjs";
-import MAIN_ARTICLES_QUERY from "../apollo/main_articles";
-import {Article} from "../Article";
+import MAIN_ARTICLES_QUERY from "../../GraphQLQueries/main_articles";
+import {Article} from "../../Article";
 
 @Component({
   selector: 'latest-article',

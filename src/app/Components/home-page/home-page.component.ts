@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {Article} from "../Article";
+import {Article} from "../../Article";
 import {Subscription} from "rxjs";
-import {ArticlesService} from "../articles.service";
+import {ArticlesService} from "../../Services/articles.service";
 import {Apollo} from "apollo-angular";
-import MAIN_ARTICLES_QUERY from "../apollo/main_articles";
+import MAIN_ARTICLES_QUERY from "../../GraphQLQueries/main_articles";
 import {ApolloQueryResult} from "@apollo/client/core/types";
-import {ArticleExtractPipe} from "../article-extract.pipe";
-import {TopArticlesExtractPipe} from "../top-articles-extract.pipe";
+import {ArticleExtractPipe} from "../../Pipes/ArticleExtract/article-extract.pipe";
+import {TopArticlesExtractPipe} from "../../Pipes/TopArticlesExtract/top-articles-extract.pipe";
 
 @Component({
   selector: 'app-home-page',

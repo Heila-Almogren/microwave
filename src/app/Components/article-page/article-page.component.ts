@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {Apollo} from "apollo-angular";
-import ARTICLE from "../apollo/article";
+import ARTICLE from "../../GraphQLQueries/article";
 import {ActivatedRoute, NavigationStart} from "@angular/router";
-import {Article} from "../Article";
-import {ArticlesService} from "../articles.service";
-import {ArticleExtractPipe} from "../article-extract.pipe";
+import {Article} from "../../Article";
+import {ArticlesService} from "../../Services/articles.service";
+import {ArticleExtractPipe} from "../../Pipes/ArticleExtract/article-extract.pipe";
 
 @Component({
   selector: 'article-page',
@@ -15,6 +15,8 @@ import {ArticleExtractPipe} from "../article-extract.pipe";
 export class ArticlePageComponent implements OnInit {
 
   article: any;
+  title: string | undefined;
+  body: string | undefined;
   private articleSubscription: Subscription | undefined;
 
 
@@ -29,7 +31,9 @@ export class ArticlePageComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('id')
     this.articleSubscription = this.articlesService.getArticle(id || "0")
       .subscribe(res => {
-        this.article = this.pipe.transform(res, "article_body")
+
+        this.title = this.pipe.transform(res, "article_title")
+         this.body = this.pipe.transform(res, "article_body")
         console.log(res)
       })
 

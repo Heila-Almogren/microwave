@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Environment} from "@angular/compiler-cli/src/ngtsc/typecheck/src/environment";
+import {environment} from "../environments/environment";
 
 
 @Component({
@@ -16,6 +18,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
 
+    console.log("Production: "+environment.production)
 
   }
 
