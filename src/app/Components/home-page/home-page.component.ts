@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Article} from "../../Article";
 import {Subscription} from "rxjs";
-import {ArticlesService} from "../../Services/articles.service";
+import {ArticlesService} from "../../Services/Articles/articles.service";
 import {Apollo} from "apollo-angular";
 import MAIN_ARTICLES_QUERY from "../../GraphQLQueries/main_articles";
 import {ApolloQueryResult} from "@apollo/client/core/types";

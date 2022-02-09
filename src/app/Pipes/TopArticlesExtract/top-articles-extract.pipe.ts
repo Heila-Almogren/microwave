@@ -1,12 +1,15 @@
 import {Pipe, PipeTransform} from '@angular/core';
+import {environment} from "../../../environments/environment";
 
 @Pipe({
   name: 'topArticlesExtract'
 })
 export class TopArticlesExtractPipe implements PipeTransform {
 
+
   transform(obj: any, arg: string): any {
 
+    let url = environment.production ? "https://microwave-db.herokuapp.com":"http://localhost:1337";
 
     let base = obj["attributes"]
     switch (arg) {
@@ -25,7 +28,7 @@ export class TopArticlesExtractPipe implements PipeTransform {
           .substring(0, 100) + "..."
 
       case "main_image" :
-        return "https://microwave-db.herokuapp.com" + base["main_image"]["data"]?.["attributes"]["url"]
+        return url + base["main_image"]["data"]?.["attributes"]["url"]
     }
     console.log(JSON.stringify(base))
     return 0;

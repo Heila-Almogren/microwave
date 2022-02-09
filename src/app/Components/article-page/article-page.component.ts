@@ -4,7 +4,7 @@ import {Apollo} from "apollo-angular";
 import ARTICLE from "../../GraphQLQueries/article";
 import {ActivatedRoute, NavigationStart} from "@angular/router";
 import {Article} from "../../Article";
-import {ArticlesService} from "../../Services/articles.service";
+import {ArticlesService} from "../../Services/Articles/articles.service";
 import {ArticleExtractPipe} from "../../Pipes/ArticleExtract/article-extract.pipe";
 
 @Component({

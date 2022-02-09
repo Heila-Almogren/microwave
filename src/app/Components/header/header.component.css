@@ -5,3 +5,17 @@
 .MenuIcon:hover {
   transform: rotate(10deg);
 }
+
+/*@media screen and (min-width: 499px) { !*desktop*!*/
+
+/*  .top-articles {*/
+/*    flex-direction: row;*/
+/*  }*/
+/*}*/
+
+/*@media screen and (max-width: 500px) { !*mobile*!*/
+
+/*  .top-articles {*/
+/*    flex-direction: column;*/
+/*  }*/
+/*}*/

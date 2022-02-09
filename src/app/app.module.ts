@@ -16,6 +16,9 @@ import { HomePageComponent } from './Components/home-page/home-page.component';
 import {AppRoutingModule} from './app-routing.module';
 import { ArticleExtractPipe } from './Pipes/ArticleExtract/article-extract.pipe';
 import { TopArticlesExtractPipe } from './Pipes/TopArticlesExtract/top-articles-extract.pipe';
+import {FormsModule} from "@angular/forms";
+import { AllArticlesComponent } from './Components/all-articles/all-articles.component';
+import { AboutChefComponent } from './about-chef/about-chef.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { TopArticlesExtractPipe } from './Pipes/TopArticlesExtract/top-articles-
     ArticlePageComponent,
     HomePageComponent,
     ArticleExtractPipe,
-    TopArticlesExtractPipe
+    TopArticlesExtractPipe,
+    AllArticlesComponent,
+    AboutChefComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,8 @@ import { TopArticlesExtractPipe } from './Pipes/TopArticlesExtract/top-articles-
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    GraphQLModule
+    GraphQLModule,
+    FormsModule
   ],
   providers: [ArticleExtractPipe, TopArticlesExtractPipe],
   bootstrap: [AppComponent]
