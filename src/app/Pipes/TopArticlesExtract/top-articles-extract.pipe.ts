@@ -22,8 +22,8 @@ export class TopArticlesExtractPipe implements PipeTransform {
       case "article_title" :
         return base["article_title"];
 
-      case "article_body":
-        return (base["article_body"])
+      case "preamble":
+        return (base["preamble"])
           .replace(/<[^>]*>/g, "")
           .substring(0, 100) + "..."
 

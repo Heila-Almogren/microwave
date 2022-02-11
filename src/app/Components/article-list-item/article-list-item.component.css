@@ -1,0 +1,32 @@
+
+@media screen and (min-width: 499px) { /*desktop*/
+
+  .article-item {
+    flex-direction: row;
+    height: 200px
+  }
+  .article-data, .article-image {
+    width: 50%
+  }
+
+
+
+
+}
+
+@media screen and (max-width: 500px) { /*mobile*/
+  .article-item {
+
+    height: max-content;
+  }
+  .article-data, .article-image {
+    width: 100%
+  }
+
+  .article-image {
+    height: 200px
+  }
+
+}
+
+

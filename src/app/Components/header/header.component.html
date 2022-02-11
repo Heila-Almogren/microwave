@@ -1,29 +1,30 @@
-<div style="width: 100%; height: 50px; padding: 0; margin: 0; display: flex; flex-direction: row; flex-wrap: nowrap; row-gap: 0; column-gap: 0">
+<div
+  style="width: 100%; height: 50px; padding: 0; margin: 0; display: flex; flex-direction: row; flex-wrap: nowrap; row-gap: 0; column-gap: 0">
 
 
+  <div
+    style="border: 3px solid black; width: 100%; margin-right: -3px; background-color: var(--yellow); text-align: right; direction: rtl; display: flex; justify-content: space-between">
 
-  <div style="border: 3px solid black; width: 100%; margin-right: -3px; background-color: var(--yellow); text-align: right; direction: rtl; display: flex; justify-content: space-between">
+    <div style="align-self: center; margin-right: 10px; font-size: 30px;">
+      مدونة ميكروويف
+    </div>
 
-  <div style="align-self: center; margin-right: 10px; font-size: 30px;">
-    مدونة ميكروويف
-  </div>
-
-    <div *ngIf="!this.MobileMode" style="align-self: center; margin-left: 10px; font-size: 20px; display: flex; column-gap: 25px">
-      <div  routerLink="/">الرئيسية</div>
-      <div routerLink="/articles">جميع المقالات</div>
-      <div routerLink="/about-chef">عن الطباخة</div>
+    <div *ngIf="!this.MobileMode"
+         style="align-self: center; margin-left: 10px; font-size: 20px; display: flex; column-gap: 25px">
+      <div class="head-menu-item" routerLink="/">الرئيسية</div>
+      <div class="head-menu-item" routerLink="/articles">جميع المقالات</div>
+      <div class="head-menu-item" routerLink="/about-chef">عن الطباخة</div>
     </div>
   </div>
 
 
-
   <div *ngIf="this.MobileMode" style="border: 3px solid black; width: 50px; float: right; display: flex;">
-    <div class="MenuIcon" style="align-self: center; font-size: 25px;  margin: auto; cursor: pointer; height: fit-content">
+    <div class="MenuIcon" routerLink={{togo}}
+         style="align-self: center; font-size: 25px;  margin: auto; cursor: pointer; height: fit-content">
       <fa-icon [icon]="faBars"></fa-icon>
     </div>
 
   </div>
-
 
 
 </div>

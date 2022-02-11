@@ -18,7 +18,10 @@ import { ArticleExtractPipe } from './Pipes/ArticleExtract/article-extract.pipe'
 import { TopArticlesExtractPipe } from './Pipes/TopArticlesExtract/top-articles-extract.pipe';
 import {FormsModule} from "@angular/forms";
 import { AllArticlesComponent } from './Components/all-articles/all-articles.component';
-import { AboutChefComponent } from './about-chef/about-chef.component';
+import { AboutChefComponent } from './Components/about-chef/about-chef.component';
+import { ArticleListItemComponent } from './Components/article-list-item/article-list-item.component';
+import { SideMenuComponent } from './Components/side-menu/side-menu.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { AboutChefComponent } from './about-chef/about-chef.component';
     ArticleExtractPipe,
     TopArticlesExtractPipe,
     AllArticlesComponent,
-    AboutChefComponent
+    AboutChefComponent,
+    ArticleListItemComponent,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +48,11 @@ import { AboutChefComponent } from './about-chef/about-chef.component';
     HttpClientModule,
     FontAwesomeModule,
     GraphQLModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [ArticleExtractPipe, TopArticlesExtractPipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [RouterModule]
 })
 export class AppModule { }

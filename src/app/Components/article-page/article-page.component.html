@@ -6,16 +6,14 @@ padding: 30px; border-radius: 30px; margin-top: 50px; ">
     <div class="title" style="font-size: 30px">
       {{this.title}}
     </div>
+<slot>
+  <div
+    [innerHTML]="sanitizer.bypassSecurityTrustHtml(body||'')"
+    style="font-size: 20px">
+  </div>
+</slot>
 
-    <div
-      [innerHTML]='body'
-      style="font-size: 20px;
-  "
-    >
-
-
-
-    </div>
   </div>
 </div>
+
 

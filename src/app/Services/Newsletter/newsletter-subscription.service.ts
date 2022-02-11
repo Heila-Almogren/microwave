@@ -21,7 +21,7 @@ export class NewsletterSubscriptionService {
       'Access-Control-Allow-Origin': '*'
     }
 
-    return this.http.post(dev_url, {email: subscriberEmail})
+    return this.http.post(prod_url, {email: subscriberEmail})
   }
 
 

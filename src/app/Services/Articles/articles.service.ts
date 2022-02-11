@@ -20,15 +20,15 @@ export class ArticlesService {
   }
 
   getStrapiAPIKey(): Observable<any> {
-    let dev_url = "https://microwave-backend.herokuapp.com/strapi_api_key"
-    let local_url = "http://localhost:9000/strapi_api_key"
+    let prod_url = "https://microwave-backend.herokuapp.com/strapi_api_key"
+    let dev_url = "http://localhost:9000/strapi_api_key"
 
     let headers = {
       'Content-Type': '*',
       'Access-Control-Allow-Origin': '*'
     }
 
-    return this.http.get(dev_url, {headers, 'responseType': 'text'})
+    return this.http.get(prod_url, {headers, 'responseType': 'text'})
   }
 
   // getAllArticles(): Observable<any> {

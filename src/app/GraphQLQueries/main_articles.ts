@@ -8,7 +8,7 @@ query {
       attributes {
         slug
         article_title
-        article_body
+        preamble
         main_image {
           data {
             attributes {

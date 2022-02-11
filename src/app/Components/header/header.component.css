@@ -6,6 +6,9 @@
   transform: rotate(10deg);
 }
 
+.head-menu-item {
+  cursor: pointer;
+}
 /*@media screen and (min-width: 499px) { !*desktop*!*/
 
 /*  .top-articles {*/

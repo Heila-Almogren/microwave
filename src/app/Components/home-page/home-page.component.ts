@@ -45,9 +45,9 @@ export class HomePageComponent implements OnInit {
           let id = this.pipe.transform(article, "id");
           let slug = this.pipe.transform(article, "slug");
           let title = this.pipe.transform(article, "article_title");
-          let body =  this.pipe.transform(article, "article_body");
+          let preamble =  this.pipe.transform(article, "preamble");
           let main_img = this.pipe.transform(article, "main_image");
-          return new Article(id, slug, title, body, main_img);
+          return new Article(id, slug, title, preamble, main_img);
         })
         // .split('/uploads/').join('http://localhost:1337/uploads/');
 

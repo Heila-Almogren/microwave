@@ -2,7 +2,7 @@
 ">
   <div
     class="main_article_image"
-    [ngStyle]="{'border': 'solid black', 'background-image': 'url('+article?.main_image+')'}">
+    [ngStyle]="{'border': 'solid black', 'background-image': 'url('+article?.main_image+')', 'background-position': 'center'}">
         <img src="" alt="">
 
   </div>
@@ -16,7 +16,7 @@
     </div>
     <br>
     <div>
-      {{article?.article_body}}
+      {{article?.preamble}}
     </div>
 
 
