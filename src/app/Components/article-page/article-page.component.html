@@ -8,7 +8,7 @@ padding: 30px; border-radius: 30px; margin-top: 50px; ">
     </div>
 <slot>
   <div
-    [innerHTML]="sanitizer.bypassSecurityTrustHtml(body||'')"
+    [innerHTML]="body"
     style="font-size: 20px">
   </div>
 </slot>
