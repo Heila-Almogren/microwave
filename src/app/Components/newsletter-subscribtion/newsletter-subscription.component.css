@@ -1,0 +1,12 @@
+.email-input-box {
+
+  border: 1px solid var(--gray);
+
+  height: 40px;
+  font-size: 20px;
+  width: 300px
+}
+
+::placeholder {
+  font-size: 15px
+}

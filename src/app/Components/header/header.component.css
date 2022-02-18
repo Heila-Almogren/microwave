@@ -1,14 +1,14 @@
-.MenuIcon {
-  transition: transform .01s;
-}
+/*.MenuIcon {*/
+/*  transition: transform .01s;*/
+/*}*/
 
-.MenuIcon:hover {
-  transform: rotate(10deg);
-}
+/*.MenuIcon:hover {*/
+/*  transform: rotate(10deg);*/
+/*}*/
 
-.head-menu-item {
-  cursor: pointer;
-}
+/*.head-menu-item {*/
+/*  cursor: pointer;*/
+/*}*/
 /*@media screen and (min-width: 499px) { !*desktop*!*/
 
 /*  .top-articles {*/
@@ -22,3 +22,10 @@
 /*    flex-direction: column;*/
 /*  }*/
 /*}*/
+
+a {
+  cursor: pointer;
+}
+.is-active {
+  color: black;
+}

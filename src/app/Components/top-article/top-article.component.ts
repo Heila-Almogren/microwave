@@ -8,6 +8,7 @@ import {Article} from "../../Article";
 })
 export class TopArticleComponent implements OnInit {
   @Input("article") article: Article | undefined;
+
   constructor() { }
 
   ngOnInit(): void {

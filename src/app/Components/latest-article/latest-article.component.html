@@ -1,21 +1,19 @@
-<div class="main_article_wrapper" style="width: 100%;  border: 3px solid black; margin-top: -3px;
-">
-  <div
-    class="main_article_image"
-    [ngStyle]="{'border': 'solid black', 'background-image': 'url('+article?.main_image+')', 'background-position': 'center'}">
-        <img src="" alt="">
+<div class="main_article_wrapper full-width">
 
-  </div>
   <div
-    class="main_article_text"
-    >
-
-    <div style="font-size: 30px;  ">
+    class="main_article_text Boutros-Bold"
+    [ngClass]="article?'':'loading'"
+  >
+    <div style="border-bottom: 1px solid var(--gray); width: fit-content; margin-bottom: 10px; font-size: 27px"
+    *ngIf="article">
+      الأخيرة
+    </div>
+    <div style="font-size: 47px;">
       {{article?.article_title}}
-
+&nbsp;
     </div>
     <br>
-    <div>
+    <div style="font-size: 27px; color: var(--gray)">
       {{article?.preamble}}
     </div>
 
@@ -23,6 +21,15 @@
   </div>
 
 
+  <div
+    class="main_article_image"
+    [ngClass]="article?'':'loading'"
+    [ngStyle]="{'background-image': 'url('+article?.main_image+')', 'background-position': 'center'}">
+
+  </div>
+
+
 </div>
+
 
 

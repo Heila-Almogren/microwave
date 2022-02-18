@@ -1,32 +1,47 @@
-<div style="direction: rtl; text-align: center; width: 100%;  border: 3px solid black; margin-top: -3px;
+<div
+  class="full-width centered-text "
+  style="
+  margin-top: 40px;
+  border-top: 1px solid var(--gray);
+   margin-bottom: 40px;
+   border-bottom: 1px solid var(--gray);
 ">
   <br>
-  <div style="margin: auto; font-size: 25px;width: 70%">
-    اشترك في النشرة لطبق جديد كل جمعة 👩🏻‍🍳
+  <br><br>
+  <div
+    class="Shafigh"
+    style="margin: auto; font-size: 20px;width: 70%">
+    اشترك في النشرة البريدية ليصلك موضوع جديد كل جمعة 👩🏻‍🍳
+
   </div>
   <br>
-  <div>
+  <div style="display: flex; justify-content: center">
 
 
       <input type="text"
              [(ngModel)]="subscriberEmail"
-             class="input-box"
-             placeholder="ادخل بريدك الالكتروني">
+             class="email-input-box"
+             placeholder="ادخل بريدك الالكتروني"
+      >
       &nbsp;
 
-      <button
+      <input
+        type="button"
         (click)="subscribeToNewsletter($event)"
+        class="Shafigh simple-back-border"
         style="
       cursor:pointer ;
-      font-size: 20px; border: 2px solid black; border-radius: 9px; height: 40px; font-family: Yasser, serif; width: 70px; background-color: #86DCAD">
-        اشترك
-      </button>
+      font-size: 20px; height: 40px; width: 70px; background-color: white"
+      value="اشترك"/>
+
+
 
 
   </div>
-  <div *ngIf="showResult" style="padding: 5px;">
+  <div *ngIf="showResult" class="Shafigh" style="padding: 5px;">
     {{this.resultMessage}}
   </div>
 
   <br>
+  <br><br>
 </div>

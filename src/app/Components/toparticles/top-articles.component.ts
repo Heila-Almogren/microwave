@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
 export class TopArticlesComponent implements OnInit {
 
   @Input("articles") articles: Article[] | undefined;
+  @Input("loading") loading: Boolean | undefined;
 
   constructor() {
 

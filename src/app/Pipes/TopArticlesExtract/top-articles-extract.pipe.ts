@@ -28,7 +28,7 @@ export class TopArticlesExtractPipe implements PipeTransform {
           .substring(0, 100) + "..."
 
       case "main_image" :
-        return url + base["main_image"]["data"]?.["attributes"]["url"]
+        return base["main_image"]["data"]?.["attributes"]["url"]
     }
     console.log(JSON.stringify(base))
     return 0;

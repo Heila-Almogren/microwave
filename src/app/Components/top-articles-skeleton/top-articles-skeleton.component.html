@@ -1,30 +1,34 @@
 <div
-  class="Boutros-Bold"
+  class="full-width"
+   style="display: flex; flex-direction: row; justify-content: space-between">
+<div
+  *ngFor="let number of [0,1,2]"
 
   style="display: flex; flex-direction: column; direction: rtl; box-sizing: border-box; padding: 10px; flex-wrap: nowrap; width: 350px; line-height: 25px">
 
 
   <div
     class="main_article_image"
-
+    [ngClass]="'loading'"
     [ngStyle]="{
-
-      'height':'300px', 'margin-bottom':'20px', 'background-image': 'url('+article?.main_image+')', 'background-size':'cover', 'background-position': 'center'}">
-    &nbsp;
+      'height':'300px', 'margin-bottom':'20px'}">
+    <img src="" alt="">
 
   </div>
 
   <div>
     <div style="font-size: 25px; margin-bottom: 5px; font-weight: lighter; height: 30px">
-      {{article?.article_title}}
+      &nbsp;
     </div>
 
-    <div class="gray-text" style="font-size: 15px; height: 50px">
-      {{article?.preamble}}
+    <div class="gray-text" style="font-size: 15px; height: 50px"
+         [ngClass]="'loading'">
+      &nbsp;
 
     </div>
   </div>
 
 
 
+</div>
 </div>

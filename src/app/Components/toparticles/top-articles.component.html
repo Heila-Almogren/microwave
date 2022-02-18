@@ -1,10 +1,16 @@
-<div class="top-articles" style="display: flex;width: 100%;  border: 3px solid black; margin-top: -3px;">
+<div class="top-articles" style="display: flex;width: 100%;justify-content: space-between">
 
   <top-article
 
     *ngFor="let article of articles" [article]="article"
     routerLink="/article/{{article.id}}"
   >
-
   </top-article>
+
+  <!--  {{article}}-->
+
+</div>
+<div *ngIf="loading">
+  <top-article-skeleton>
+  </top-article-skeleton>
 </div>

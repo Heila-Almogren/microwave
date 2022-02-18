@@ -22,6 +22,7 @@ import { AboutChefComponent } from './Components/about-chef/about-chef.component
 import { ArticleListItemComponent } from './Components/article-list-item/article-list-item.component';
 import { SideMenuComponent } from './Components/side-menu/side-menu.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { TopArticlesSkeletonComponent } from './Components/top-articles-skeleton/top-articles-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AllArticlesComponent,
     AboutChefComponent,
     ArticleListItemComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    TopArticlesSkeletonComponent
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
   font-family: Yasser;
-  src: url("assets/fonts/ArbFONTS-FF Yaseer.otf");
+  src: url("assets/fonts/Yaseer/ArbFONTS-FF Yaseer.otf");
+}
+
+@font-face {
+  font-family: "XB Shafigh";
+  src: url("assets/fonts/XBShafigh/XB Shafigh.ttf");
+}
+
+@font-face {
+  font-family: "XB Shafigh Bold";
+  src: url("assets/fonts/XBShafigh/XB ShafighBd.ttf");
+}
+
+@font-face {
+  font-family: "Boutros Bold";
+  src: url("assets/fonts/Boutros/BoutrosNewsH1-Bold.ttf");
 }
 
 
 * {
   box-sizing: border-box;
-
+  direction: rtl;
 }
 
 *:focus {
@@ -26,9 +41,9 @@ a {
 body {
 
   margin: auto;
-  padding: 0;
+  padding: 10px;
   width: 100%;
-
+  max-width: 1150px;
   height: 100%;
   box-sizing: border-box;
   font-family: Yasser, serif;
@@ -56,15 +71,80 @@ html {
 
 ::placeholder {
   color: #C1C1C1;
+  font-family: "XB Shafigh", serif;
 }
 
 img {
   width: 100%;
 
 }
+
 figure {
 
 
   width: 100%;
 
+}
+
+
+:root {
+  --gray: #808080;
+}
+
+.Shafigh {
+  font-family: 'XB Shafigh', serif;
+}
+
+.Shafigh-bold {
+  font-family: 'XB Shafigh Bold', serif;
+}
+
+.Boutros-Bold{
+  font-family: "Boutros Bold", serif;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.centered {
+  margin: auto;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.dev-border {
+  border: 1px solid red;
+}
+
+.gray-text {
+  color: var(--gray);
+}
+
+.simple-gray-border {
+  border: 1px solid var(--gray)
+}
+
+.simple-back-border {
+  border: 1px solid black
+}
+
+
+
+.loading {
+  background-color: #F5F5F5;
+  animation: skeleton 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes skeleton {
+  from {
+    transform: scale(.8);
+  }
+  to {
+    transform: scale(.9);
+  }
 }

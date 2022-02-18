@@ -46,6 +46,7 @@ export class ArticlesService {
 
 getArticle(id:string):Observable<any>{
 
+
   return this.apolloClient
     .watchQuery<any>({
       query: ARTICLE,
@@ -56,7 +57,11 @@ getArticle(id:string):Observable<any>{
 
 
 getTopArticles():Observable<any>{
-    return this.apolloClient
+
+
+
+
+  return this.apolloClient
       .watchQuery<any[]>({
         query: MAIN_ARTICLES_QUERY
       })

@@ -1,4 +1,11 @@
 <!--<main-banner></main-banner>-->
+
+<br>
+<br><br>
 <latest-article [article]="this.data[0]"></latest-article>
 <newsletter-subscription></newsletter-subscription>
-<top-articles [articles]="this.data.slice(1)"></top-articles>
+<top-articles [articles]="this.data.slice(1)" [loading]="this.data.length == 0"></top-articles>
+<div style="height: 200px">
+  &nbsp;
+</div>
+
