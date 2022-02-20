@@ -7,6 +7,7 @@ query($id: ID) {
       attributes {
         article_title
         article_body
+        publish_date
       }
     }
   }

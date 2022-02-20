@@ -25,6 +25,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { TopArticlesSkeletonComponent } from './Components/top-articles-skeleton/top-articles-skeleton.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
+import { DateLocalizerPipe } from './date-localizer.pipe';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
     AboutChefComponent,
     ArticleListItemComponent,
     SideMenuComponent,
-    TopArticlesSkeletonComponent
+    TopArticlesSkeletonComponent,
+    DateLocalizerPipe
   ],
   imports: [
     BrowserModule,

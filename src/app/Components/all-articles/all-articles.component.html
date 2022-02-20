@@ -10,19 +10,25 @@
 
   </div>
 
-  <div class="articles-list" style="margin: auto;width: 70%; max-width: 800px;"
+  <div class="articles-list" style="margin: auto;width: 70%; max-width: 800px; min-height: 900px">
 
-  >
 
-    <article-list-item *ngFor="let article of articles" [article]="article"></article-list-item>
+<div *ngIf="articles==undefined">
+  <article-list-item *ngFor="let n of [0,1,2,3]"></article-list-item>
+
+</div>
+    <article-list-item
+      routerLink="/article/{{article.id}}"
+      *ngFor="let article of articles" [article]="article">
+
+    </article-list-item>
 
 </div>
 
 
 </div>
-<button (click)="getMore()">
-  ff
-</button>
+<br>
 <ngb-pagination [collectionSize]="this.totalPages" [pageSize]="pageSize" [(page)]="page" (pageChange)="changePage()" [rotate]="true" aria-label="Default pagination"></ngb-pagination>
 
 <br><br><br>
+

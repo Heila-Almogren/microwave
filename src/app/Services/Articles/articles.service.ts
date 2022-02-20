@@ -89,7 +89,7 @@ export class ArticlesService {
       })
       .valueChanges
       .subscribe(res=>{
-        console.log(res.data.articles.data)
+
         resolve(res.data.articles.data.length);
       })
 
@@ -105,7 +105,7 @@ export class ArticlesService {
         variables: {
           offset: 0
         },
-        fetchPolicy: 'network-only',
+        fetchPolicy: 'cache-first',
       })
 
   }

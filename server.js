@@ -3,7 +3,7 @@ const path = require('path');
 
 const app = express();
 
-app.use(express.static('./dist/personal-website'));
+app.use(express.static('./dist/microwave'));
 
 app.get('/*', function (request, response) {
   // response.sendFile(path.join(__dirname, '/dist/microwave/index.html'));

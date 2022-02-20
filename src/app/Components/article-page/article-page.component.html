@@ -1,17 +1,24 @@
 <div style="width: 100%; box-sizing: border-box; padding: 30px">
-  <div style="direction: rtl; text-align: right; width: 100%;  border: 3px solid black; box-sizing: border-box; margin: auto;
-padding: 30px; border-radius: 30px; margin-top: 50px; ">
+  <div style="direction: rtl; text-align: right; width: 100%;box-sizing: border-box; margin: auto;
+padding: 30px; border-radius: 30px;">
 
 
-    <div class="title" style="font-size: 30px">
+    <div class="title Boutros-Bold" style="font-size: 44px; text-align: center; max-width: 600px; margin: auto;">
       {{this.title}}
+
     </div>
-<slot>
+
+    <div class="Shafigh gray-text centered-text" style="font-size: 15px; border-bottom: 1px solid var(--lightgray); max-width: 600px; margin: auto; padding-bottom: 5px">
+      <br>
+      {{publish_date}}
+    </div>
+
   <div
     [innerHTML]="body"
-    style="font-size: 20px">
+    class="Boutros-Bold gray-text innertext"
+    style="font-size: 20px; max-width: 600px; margin: auto; text-align: justify;">
   </div>
-</slot>
+
 
   </div>
 </div>

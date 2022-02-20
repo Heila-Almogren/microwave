@@ -6,7 +6,7 @@ import {Apollo} from "apollo-angular";
 import {ArticlesService} from "../../Services/Articles/articles.service";
 import {Article} from "../../Article";
 import {TopArticlesExtractPipe} from "../../Pipes/TopArticlesExtract/top-articles-extract.pipe";
-import {Subscription} from "rxjs";
+import {firstValueFrom, Subscription} from "rxjs";
 
 
 @Component({
@@ -17,31 +17,30 @@ import {Subscription} from "rxjs";
 export class AllArticlesComponent implements OnInit {
 
   //pagination stuff
-  currentOffset: number;
+
   page: number = 0;
   totalPages: number = 0;
   pageSize: number = 4;
 
   //articles list
-  articles: any[] = [];
+  articles: any[] | undefined;
 
   //promises & subs
-  PaginatedArticlesPromise: Subscription;
+  PaginatedArticlesPromise: Promise<any> | undefined;
   ArticlesTotalLengthPromise: Promise<any> | undefined
 
 
   constructor(private articlesService: ArticlesService,
               public pipe: TopArticlesExtractPipe) {
 
-    // Init current offset to zero
-    this.currentOffset = 0;
 
     // Define Promises
-    this.PaginatedArticlesPromise = this.articlesService
-      .getArticlesPaginated()
-      .valueChanges
-      .subscribe(res => this.extractInfo(res)
-      )
+    this.PaginatedArticlesPromise =
+      firstValueFrom(
+      this.articlesService
+        .getArticlesPaginated()
+        .valueChanges
+    )
 
     this.ArticlesTotalLengthPromise = this.articlesService
       .getCount
@@ -49,46 +48,34 @@ export class AllArticlesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log("Initially, offset is "+ this.currentOffset)
+    console.log("ngOnInit")
 
-    // Call for first batch
     Promise.all(
-      [this.PaginatedArticlesPromise, this.ArticlesTotalLengthPromise]
+      [this.ArticlesTotalLengthPromise]
     ).then(results => {
-
-
-
-      this.totalPages = results[1]
-      console.log("Total Pages is "+ this.totalPages)
-      console.log("Fetched first batch, offset is "+ this.currentOffset)
+      this.totalPages = results[0]
     })
-
-
   }
 
 
   getMore = () => {
-
+    this.articles = undefined;
+    setTimeout(()=>{
     this.articlesService
       .getArticlesPaginated()
       .fetchMore({
         variables: {
-          offset: this.currentOffset
+          offset: (this.page * 4) - 4
         }
       })
       .then(res => {
-        console.log("Fetched More, offset is "+ this.currentOffset)
-        this.currentOffset = this.page * 4 + 1;
         this.extractInfo(res)
-
-
       })
+  },3000)
+
   }
 
   changePage() {
-
-
-    console.log("Page changed, offset is "+ this.currentOffset)
     this.getMore()
   }
 

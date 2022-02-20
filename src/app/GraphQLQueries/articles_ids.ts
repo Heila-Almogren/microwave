@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 
 const Articles_ids = gql`
 query {
-  articles {
+  articles(pagination: { limit: 100 }) {
     data {
       id
     }

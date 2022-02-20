@@ -19,6 +19,7 @@ export class ArticlePageComponent implements OnInit {
   article: any;
   title: string | undefined;
   body: string | undefined;
+  publish_date: string | undefined;
   x: string | undefined;
   private articleSubscription: Subscription | undefined;
 
@@ -35,9 +36,11 @@ export class ArticlePageComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('id')
     this.articleSubscription = this.articlesService.getArticle(id || "0")
       .subscribe(res => {
-this.x = res["data"]["article"]["data"]["attributes"]["article_body"]
+console.log(res)
         this.title = this.pipe.transform(res, "article_title")
          this.body = this.pipe.transform(res, "article_body")
+         this.publish_date = new Date(this.pipe.transform(res, "publish_date")).toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
         console.log(res)
       })
 

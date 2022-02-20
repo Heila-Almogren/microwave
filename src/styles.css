@@ -41,7 +41,7 @@ a {
 body {
 
   margin: auto;
-  padding: 10px;
+  padding: 25px;
   width: 100%;
   max-width: 1150px;
   height: 100%;
@@ -89,6 +89,7 @@ figure {
 
 :root {
   --gray: #808080;
+  --lightgray: #d3d3d3;
 }
 
 .Shafigh {
@@ -150,3 +151,8 @@ figure {
 }
 
 
+figcaption  {
+  color: black;
+  text-align: center;
+  font-size: 15px;
+}
