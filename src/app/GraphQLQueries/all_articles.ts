@@ -1,11 +1,11 @@
 import gql from "graphql-tag";
 
-const MAIN_ARTICLES_QUERY = gql`
-query {
-  articles(sort: "publish_date:desc", pagination: { limit: 4 }) {
+const ALL_ARTICLES = gql`
+query($offset: Int) {
+  articles(sort: "id:asc", pagination: { limit: 4, start: $offset}) {
     data {
       id
-      attributes {
+        attributes {
         slug
         article_title
         preamble
@@ -20,6 +20,9 @@ query {
     }
   }
 }
-`;
+`
+;
+//publish_date
+export default ALL_ARTICLES;
 
-export default MAIN_ARTICLES_QUERY;
+

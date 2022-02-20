@@ -46,8 +46,8 @@ body {
   max-width: 1150px;
   height: 100%;
   box-sizing: border-box;
-  font-family: Yasser, serif;
-  position: relative;
+
+
 
 }
 
@@ -148,3 +148,5 @@ figure {
     transform: scale(.9);
   }
 }
+
+

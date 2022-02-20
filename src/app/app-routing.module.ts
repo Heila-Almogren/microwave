@@ -10,7 +10,7 @@ import {SideMenuComponent} from "./Components/side-menu/side-menu.component";
 
 
 const routes: Routes = [
-  {path: "/", component: HomePageComponent, data: {animation: 'home'}},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {path: "home", component: HomePageComponent, data: {animation: 'home'}},
   {path: "article/:id", component: ArticlePageComponent, data: {animation: 'article'}},
   {path: "articles", component: AllArticlesComponent, data: {animation: 'articles'}},

@@ -23,6 +23,9 @@ import { ArticleListItemComponent } from './Components/article-list-item/article
 import { SideMenuComponent } from './Components/side-menu/side-menu.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { TopArticlesSkeletonComponent } from './Components/top-articles-skeleton/top-articles-skeleton.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +54,9 @@ import { TopArticlesSkeletonComponent } from './Components/top-articles-skeleton
     FontAwesomeModule,
     GraphQLModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule,
+    NgbPaginationModule
   ],
   providers: [ArticleExtractPipe, TopArticlesExtractPipe],
   bootstrap: [AppComponent],

@@ -1,12 +1,12 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {catchError, mergeMap, retry} from 'rxjs/operators';
-import {from, Observable, pipe} from "rxjs";
-import {configvars} from "configvars.dev";
-import {environment} from '../../../environments/environment';
-import {Apollo} from "apollo-angular";
+import {Injectable} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
+import {Observable, Subscription} from "rxjs";
+import {Apollo, QueryRef} from "apollo-angular";
 import ARTICLE from "../../GraphQLQueries/article";
 import MAIN_ARTICLES_QUERY from "../../GraphQLQueries/main_articles";
+import ALL_ARTICLES from "../../GraphQLQueries/all_articles";
+import Articles_ids from "../../GraphQLQueries/articles_ids";
+import {resolve} from "@angular/compiler-cli";
 
 
 @Injectable({
@@ -44,29 +44,88 @@ export class ArticlesService {
   //   }))
   // }
 
-getArticle(id:string):Observable<any>{
+  getArticle(id: string): Observable<any> {
 
 
-  return this.apolloClient
-    .watchQuery<any>({
-      query: ARTICLE,
-      variables: {"id": id}
-    })
-    .valueChanges
-}
+    return this.apolloClient
+      .watchQuery<any>({
+        query: ARTICLE,
+        variables: {"id": id}
+      })
+      .valueChanges
+  }
 
 
-getTopArticles():Observable<any>{
+  getTopArticles(): Observable<any> {
 
 
-
-
-  return this.apolloClient
+    return this.apolloClient
       .watchQuery<any[]>({
         query: MAIN_ARTICLES_QUERY
       })
       .valueChanges
+  }
+
+
+  getAllArticlesIDs(): Observable<any> {
+
+
+
+    return this.apolloClient
+      .watchQuery<article_model>({
+        query: Articles_ids
+      })
+      .valueChanges
+
+
+  }
+
+  getCount = new Promise<number>((resolve, reject)=>{
+
+
+    this.apolloClient
+      .watchQuery<article_model>({
+        query: Articles_ids,
+      })
+      .valueChanges
+      .subscribe(res=>{
+        console.log(res.data.articles.data)
+        resolve(res.data.articles.data.length);
+      })
+
+
+  })
+
+
+  getArticlesPaginated(): QueryRef<any> {
+
+    return this.apolloClient
+      .watchQuery<any[]>({
+        query: ALL_ARTICLES,
+        variables: {
+          offset: 0
+        },
+        fetchPolicy: 'network-only',
+      })
+
+  }
+
 }
 
 
+export class article {
+  data: any[];
+
+  constructor(data: any[]) {
+    this.data = data;
+  }
+}
+
+
+export class article_model {
+  articles: article;
+
+  constructor(articles: article) {
+    this.articles = articles;
+  }
 }
