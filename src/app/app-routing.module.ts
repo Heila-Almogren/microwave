@@ -7,6 +7,7 @@ import {HomePageComponent} from "./Components/home-page/home-page.component";
 import {AllArticlesComponent} from "./Components/all-articles/all-articles.component";
 import {AboutChefComponent} from "./Components/about-chef/about-chef.component";
 import {SideMenuComponent} from "./Components/side-menu/side-menu.component";
+import {NotfoundComponent} from "./Components/notfound/notfound.component";
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: "articles", component: AllArticlesComponent},
   {path: "about-chef", component: AboutChefComponent},
   {path: "side-menu", component: SideMenuComponent},
+  {path: "**", component: NotfoundComponent},
 ]
 
 @NgModule({

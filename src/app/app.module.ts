@@ -26,6 +26,7 @@ import { TopArticlesSkeletonComponent } from './Components/top-articles-skeleton
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 import { DateLocalizerPipe } from './date-localizer.pipe';
+import { NotfoundComponent } from './Components/notfound/notfound.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { DateLocalizerPipe } from './date-localizer.pipe';
     ArticleListItemComponent,
     SideMenuComponent,
     TopArticlesSkeletonComponent,
-    DateLocalizerPipe
+    DateLocalizerPipe,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
