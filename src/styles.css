@@ -23,6 +23,7 @@
 * {
   box-sizing: border-box;
   direction: rtl;
+  /*border: 1px solid blue;*/
 }
 
 *:focus {

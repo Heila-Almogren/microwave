@@ -9,19 +9,39 @@
 .head-menu-item {
   cursor: pointer;
 }
-/*@media screen and (min-width: 499px) { !*desktop*!*/
+@media screen and (min-width: 499px) { /*desktop*/
+.blog-title {
+  font-size: 64px;
+}
+  .blog-motto {
+    font-size: 28px;
+}
 
-/*  .top-articles {*/
-/*    flex-direction: row;*/
-/*  }*/
-/*}*/
+  .utility-bar {
+    flex-direction: row;
+  }
 
-/*@media screen and (max-width: 500px) { !*mobile*!*/
+  #search-box {
 
-/*  .top-articles {*/
-/*    flex-direction: column;*/
-/*  }*/
-/*}*/
+  }
+
+
+}
+
+@media screen and (max-width: 500px) { /*mobile*/
+
+  .blog-title {
+    font-size: 30px;
+  }
+  .blog-motto {
+    font-size: 14px;
+  }
+
+  .utility-bar {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
 
 a {
   cursor: pointer;

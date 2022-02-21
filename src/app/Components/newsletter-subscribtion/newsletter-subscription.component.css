@@ -1,12 +1,39 @@
-.email-input-box {
+#email-input-box {
 
   border: 1px solid var(--gray);
 
   height: 40px;
   font-size: 20px;
-  width: 300px
+
 }
 
 ::placeholder {
   font-size: 15px
+}
+
+
+
+
+@media screen and (min-width: 499px) { /*desktop*/
+  #subscribe-button {
+margin-top: 0;
+  }
+
+  #email-input-box {
+
+    width: 300px
+  }
+
+}
+
+@media screen and (max-width: 500px) { /*mobile*/
+
+  #subscribe-button {
+    margin-top: 10px;
+  }
+  #email-input-box {
+
+    width: 90%
+  }
+
 }

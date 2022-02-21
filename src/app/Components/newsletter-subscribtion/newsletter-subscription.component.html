@@ -15,23 +15,24 @@
 
   </div>
   <br>
-  <div style="display: flex; justify-content: center">
+  <div style="display: flex; justify-content: center; flex-wrap: wrap">
 
 
       <input type="text"
              [(ngModel)]="subscriberEmail"
-             class="email-input-box"
+             id="email-input-box"
              placeholder="ادخل بريدك الالكتروني"
       >
       &nbsp;
 
       <input
+        id="subscribe-button"
         type="button"
         (click)="subscribeToNewsletter($event)"
         class="Shafigh simple-back-border"
         style="
       cursor:pointer ;
-      font-size: 20px; height: 40px; width: 70px; background-color: white"
+      font-size: 20px; height: 40px; width: 70px; background-color: black; color: white"
       value="اشترك"/>
 
 
