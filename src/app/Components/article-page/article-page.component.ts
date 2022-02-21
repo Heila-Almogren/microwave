@@ -18,6 +18,7 @@ export class ArticlePageComponent implements OnInit {
 
   article: any;
   title: string | undefined;
+  preamble: string | undefined;
   body: string | undefined;
   publish_date: string | undefined;
   x: string | undefined;
@@ -26,9 +27,9 @@ export class ArticlePageComponent implements OnInit {
 
   constructor(private apollo: Apollo, private route: ActivatedRoute,
               private articlesService: ArticlesService,
-              public pipe:ArticleExtractPipe,
+              public pipe: ArticleExtractPipe,
               public sanitizer: DomSanitizer
-              ) {
+  ) {
   }
 
   ngOnInit(): void {
@@ -36,10 +37,16 @@ export class ArticlePageComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('id')
     this.articleSubscription = this.articlesService.getArticle(id || "0")
       .subscribe(res => {
-console.log(res)
+        console.log(res)
         this.title = this.pipe.transform(res, "article_title")
-         this.body = this.pipe.transform(res, "article_body")
-         this.publish_date = new Date(this.pipe.transform(res, "publish_date")).toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        this.preamble = this.pipe.transform(res, "preamble")
+        this.body = this.pipe.transform(res, "article_body")
+        this.publish_date = new Date(this.pipe.transform(res, "publish_date")).toLocaleDateString('ar-SA', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
 
         console.log(res)
       })

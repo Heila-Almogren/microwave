@@ -6,6 +6,7 @@ query($id: ID) {
     data {
       attributes {
         article_title
+        preamble
         article_body
         publish_date
       }

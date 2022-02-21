@@ -13,10 +13,18 @@ padding: 30px; border-radius: 30px;">
       {{publish_date}}
     </div>
     <br>
+
+    <div
+      [innerHTML]="(preamble || '') "
+      class="Boutros-Bold gray-text innertext body-text"
+    >
+    </div>
+
+    <br>
   <div
     [innerHTML]="body"
-    class="Boutros-Bold gray-text innertext"
-    style="font-size: 20px; max-width: 600px; margin: auto; text-align: justify;">
+    class="Boutros-Bold gray-text innertext body-text"
+    >
   </div>
 
 
