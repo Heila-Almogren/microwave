@@ -60,7 +60,7 @@ export class AllArticlesComponent implements OnInit {
 
   getMore = () => {
     this.articles = undefined;
-    setTimeout(()=>{
+
     this.articlesService
       .getArticlesPaginated()
       .fetchMore({
@@ -71,7 +71,7 @@ export class AllArticlesComponent implements OnInit {
       .then(res => {
         this.extractInfo(res)
       })
-  },3000)
+
 
   }
 

@@ -39,7 +39,7 @@ export class HomePageComponent implements OnInit {
       .getTopArticles()
       .subscribe((result: ApolloQueryResult<any>) => {
 
-        setTimeout(()=>{
+
 
           let res: any[] = result["data"]["articles"]["data"];
 
@@ -56,7 +56,7 @@ export class HomePageComponent implements OnInit {
           this.loading = result.loading;
           this.errors = result.errors;
 
-        },3000);
+
 
 
 
