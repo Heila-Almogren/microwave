@@ -27,6 +27,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 import { DateLocalizerPipe } from './date-localizer.pipe';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 
 @NgModule({
@@ -62,7 +63,7 @@ import { NotfoundComponent } from './Components/notfound/notfound.component';
     NgbModule,
     NgbPaginationModule
   ],
-  providers: [ArticleExtractPipe, TopArticlesExtractPipe],
+  providers: [ArticleExtractPipe, TopArticlesExtractPipe, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
   exports: [RouterModule]
 })
