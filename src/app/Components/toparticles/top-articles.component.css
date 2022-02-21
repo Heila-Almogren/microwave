@@ -21,5 +21,6 @@ top-article:hover {
 
   .top-articles {
     flex-direction: column;
+    justify-content: center;
   }
 }
