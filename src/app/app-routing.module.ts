@@ -10,19 +10,19 @@ import {SideMenuComponent} from "./Components/side-menu/side-menu.component";
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  {path: "home", component: HomePageComponent, data: {animation: 'home'}},
-  {path: "article/:id", component: ArticlePageComponent, data: {animation: 'article'}},
-  {path: "articles", component: AllArticlesComponent, data: {animation: 'articles'}},
-  {path: "about-chef", component: AboutChefComponent, data: {animation: 'about-chef'}},
-  {path: "side-menu", component: SideMenuComponent, data: {animation: 'side-menu'}},
+  { path: '', redirectTo: 'home'},
+  {path: "home", component: HomePageComponent},
+  {path: "article/:id", component: ArticlePageComponent},
+  {path: "articles", component: AllArticlesComponent},
+  {path: "about-chef", component: AboutChefComponent},
+  {path: "side-menu", component: SideMenuComponent},
 ]
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, {scrollPositionRestoration: "disabled"})
+    RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
   providers: []
