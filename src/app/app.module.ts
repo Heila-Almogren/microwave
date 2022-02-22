@@ -13,7 +13,6 @@ import { TopArticleComponent } from './Components/top-article/top-article.compon
 import { ArticlePageComponent } from './Components/article-page/article-page.component';
 import {RouterModule} from "@angular/router";
 import { HomePageComponent } from './Components/home-page/home-page.component';
-// import {AppRoutingModule} from './app-routing.module';
 import { ArticleExtractPipe } from './Pipes/ArticleExtract/article-extract.pipe';
 import { TopArticlesExtractPipe } from './Pipes/TopArticlesExtract/top-articles-extract.pipe';
 import {FormsModule} from "@angular/forms";
@@ -28,7 +27,7 @@ import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 import { DateLocalizerPipe } from './date-localizer.pipe';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
 import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from "@angular/common";
-import { routes } from './app-routing.module';
+import {AppRoutingModule, routes} from './app-routing.module';
 import {APP_BASE_HREF} from '@angular/common';
 
 
@@ -56,8 +55,8 @@ import {APP_BASE_HREF} from '@angular/common';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes, { useHash: false }),
-    // AppRoutingModule,
+    RouterModule,
+    AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
     GraphQLModule,
