@@ -16,8 +16,8 @@ const routes: Routes = [
   {path: 'articles', component: AllArticlesComponent},
   {path: 'about-chef', component: AboutChefComponent},
   {path: 'side-menu', component: SideMenuComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '**', component: NotfoundComponent},
-  {path: '', redirectTo: 'home', pathMatch: 'full'}
 ]
 
 @NgModule({
