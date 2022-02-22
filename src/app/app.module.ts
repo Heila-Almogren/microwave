@@ -54,7 +54,7 @@ import { routes } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { useHash: true }),
     // AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
@@ -64,7 +64,7 @@ import { routes } from './app-routing.module';
     NgbModule,
     NgbPaginationModule
   ],
-  providers: [ArticleExtractPipe, TopArticlesExtractPipe, {provide: LocationStrategy, useClass: PathLocationStrategy}],
+  providers: [ArticleExtractPipe, TopArticlesExtractPipe, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
   exports: [RouterModule]
 })
