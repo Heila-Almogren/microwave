@@ -63,7 +63,7 @@ import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from "@ang
     NgbModule,
     NgbPaginationModule
   ],
-  providers: [ArticleExtractPipe, TopArticlesExtractPipe, {provide: PathLocationStrategy, useClass: PathLocationStrategy}],
+  providers: [ArticleExtractPipe, TopArticlesExtractPipe, {provide: LocationStrategy, useClass: PathLocationStrategy}],
   bootstrap: [AppComponent],
   exports: [RouterModule]
 })
