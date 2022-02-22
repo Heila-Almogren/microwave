@@ -66,7 +66,7 @@ import {APP_BASE_HREF} from '@angular/common';
     NgbModule,
     NgbPaginationModule
   ],
-  providers: [ArticleExtractPipe, TopArticlesExtractPipe, {provide: APP_BASE_HREF, useValue: '/my/app'}],
+  providers: [ArticleExtractPipe, TopArticlesExtractPipe],
   bootstrap: [AppComponent],
   exports: [RouterModule]
 })
