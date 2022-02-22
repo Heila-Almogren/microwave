@@ -29,6 +29,8 @@ import { DateLocalizerPipe } from './date-localizer.pipe';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
 import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from "@angular/common";
 import { routes } from './app-routing.module';
+import {APP_BASE_HREF} from '@angular/common';
+
 
 
 @NgModule({
@@ -64,7 +66,7 @@ import { routes } from './app-routing.module';
     NgbModule,
     NgbPaginationModule
   ],
-  providers: [ArticleExtractPipe, TopArticlesExtractPipe, {provide: LocationStrategy, useClass: PathLocationStrategy}],
+  providers: [ArticleExtractPipe, TopArticlesExtractPipe, {provide: APP_BASE_HREF, useValue: '/my/app'}],
   bootstrap: [AppComponent],
   exports: [RouterModule]
 })
