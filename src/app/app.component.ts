@@ -20,9 +20,10 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
-        if (!!event.url && event.url.match(/^\/#/)) {
-          this.router.navigate([event.url.replace('/#', '')]);
-        }
+        console.log(event.url)
+        // if (!!event.url && event.url.match(/^\/#/)) {
+        //   this.router.navigate([event.url.replace('/#', '')]);
+        // }
       }
     });
   }
