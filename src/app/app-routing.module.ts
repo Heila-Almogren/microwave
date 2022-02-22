@@ -24,10 +24,10 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, { useHash: true })
+    RouterModule.forRoot(routes, { useHash: false })
   ],
   exports: [RouterModule],
-  providers: [Location, {provide: LocationStrategy, useClass: HashLocationStrategy}]
+  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
 })
 export class AppRoutingModule {
 }
