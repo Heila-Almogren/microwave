@@ -12,19 +12,19 @@ import {NotfoundComponent} from "./Components/notfound/notfound.component";
 
 const routes: Routes = [
   {path: 'home', component: HomePageComponent},
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'article/:id', component: ArticlePageComponent},
   {path: 'articles', component: AllArticlesComponent},
   {path: 'about-chef', component: AboutChefComponent},
   {path: 'side-menu', component: SideMenuComponent},
-  {path: '**', component: NotfoundComponent}
+  {path: '**', component: NotfoundComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full'}
 ]
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, { useHash: false })
+    RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
   ],
   exports: [RouterModule],
   providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
