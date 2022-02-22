@@ -10,7 +10,7 @@ import {SideMenuComponent} from "./Components/side-menu/side-menu.component";
 import {NotfoundComponent} from "./Components/notfound/notfound.component";
 
 
-const routes: Routes = [
+export const routes: Routes = [
   {path: 'home', component: HomePageComponent},
   {path: 'article/:id', component: ArticlePageComponent},
   {path: 'articles', component: AllArticlesComponent},
@@ -20,14 +20,14 @@ const routes: Routes = [
   {path: '**', component: NotfoundComponent},
 ]
 
-@NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
-  ],
-  exports: [RouterModule],
-  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
-})
-export class AppRoutingModule {
-}
+// @NgModule({
+//   declarations: [],
+//   imports: [
+//     CommonModule,
+//     RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
+//   ],
+//   exports: [RouterModule],
+//   providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
+// })
+// export class AppRoutingModule {
+// }
