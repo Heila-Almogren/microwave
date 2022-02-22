@@ -11,8 +11,8 @@ app.use(express.static('./dist/microwave'));
 // });
 
 
-app.get(/\/app.*/, function(req, res) {
-  response.sendFile(path.join(__dirname, '/index.html'));
+app.get('/*', function(req, res) {
+  response.sendFile(path.join(__dirname, '/dist/microwave/index.html'));
 });
 
 
