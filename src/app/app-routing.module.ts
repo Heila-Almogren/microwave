@@ -11,12 +11,12 @@ import {NotfoundComponent} from "./Components/notfound/notfound.component";
 
 
 export const routes: Routes = [
-  {path: '', component: HomePageComponent},
+  {path: 'home', component: HomePageComponent},
   {path: 'article/:id', component: ArticlePageComponent},
   {path: 'articles', component: AllArticlesComponent},
   {path: 'about-chef', component: AboutChefComponent},
   {path: 'side-menu', component: SideMenuComponent},
-  // {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '**', component: NotfoundComponent}
 ]
 
