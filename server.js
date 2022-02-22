@@ -7,7 +7,7 @@ app.use(express.static('./dist/microwave'));
 
 app.get('/*', function (request, response) {
   // response.sendFile(path.join(__dirname, '/dist/microwave/index.html'));
-  response.sendFile(path.join(__dirname, '/src/index.html'));
+  response.sendFile(path.join(__dirname, '/index.html'));
 });
 
 
