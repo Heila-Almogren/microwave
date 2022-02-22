@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import {CommonModule, HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {ArticlePageComponent} from "./Components/article-page/article-page.component";
 import {AppComponent} from "./app.component";
@@ -24,10 +24,10 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, { useHash: false })
+    RouterModule.forRoot(routes, { useHash: true })
   ],
   exports: [RouterModule],
-  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
+  providers: [Location, {provide: LocationStrategy, useClass: HashLocationStrategy}]
 })
 export class AppRoutingModule {
 }
