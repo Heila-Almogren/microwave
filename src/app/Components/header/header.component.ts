@@ -3,6 +3,7 @@ import {faBars} from '@fortawesome/free-solid-svg-icons';
 import {slideInAnimation} from "../../route-animation";
 import {ActivatedRoute, Router, RoutesRecognized} from "@angular/router";
 import {filter, pairwise} from "rxjs";
+import {ArticlesService} from "../../Services/Articles/articles.service";
 
 @Component({
   selector: 'header',
@@ -16,17 +17,20 @@ export class HeaderComponent implements OnInit {
   togo: string = "/side-menu";
   public MobileMode: boolean | undefined;
   faBars = faBars;
+  searchterm: any;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private articlesService: ArticlesService,
+              private router: Router,
+              private route: ActivatedRoute
+  ) {
 
     this.router.events
       .pipe(filter((evt: any) => evt instanceof RoutesRecognized), pairwise())
       .subscribe((events: RoutesRecognized[]) => {
 
-
         this.prev = events[0].urlAfterRedirects;
         this.cur = events[1].urlAfterRedirects;
-        console.log("was in: " + this.prev + ", now in: " + this.cur);
+        // console.log("was in: " + this.prev + ", now in: " + this.cur);
         if (this.cur == "/side-menu") {
           this.togo = this.prev;
         } else {
@@ -50,6 +54,11 @@ export class HeaderComponent implements OnInit {
 
   setMobileMode() {
     return window.innerWidth <= 500;
+  }
+
+  search(){
+    if(!this.searchterm || this.searchterm =="") return;
+    this.router.navigate(['search'], {queryParams: {term: this.searchterm}});
   }
 
 }

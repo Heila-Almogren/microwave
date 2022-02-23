@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {Observable, Subscription} from "rxjs";
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {firstValueFrom, Observable, Subscription} from "rxjs";
 import {Apollo, QueryRef} from "apollo-angular";
 import ARTICLE from "../../GraphQLQueries/article";
 import MAIN_ARTICLES_QUERY from "../../GraphQLQueries/main_articles";
@@ -30,6 +30,20 @@ export class ArticlesService {
 
     return this.http.get(prod_url, {headers, 'responseType': 'text'})
   }
+
+  search_keyword(term?: string): Observable<any> {
+    let prod_url = "https://microwave-backend.herokuapp.com/strapi_api_key"
+    let dev_url = "http://localhost:9000/search"
+
+    let headers = {
+      'Content-Type': '*',
+      'Access-Control-Allow-Origin': '*'
+    }
+
+    return this.http.get(dev_url, {headers, 'responseType': 'text', params: new HttpParams().set('term', term || "")})
+
+  }
+
 
   // getAllArticles(): Observable<any> {
   //

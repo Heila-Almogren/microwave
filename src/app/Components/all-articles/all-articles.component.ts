@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 import gql from "graphql-tag";
 
@@ -6,7 +6,8 @@ import {Apollo} from "apollo-angular";
 import {ArticlesService} from "../../Services/Articles/articles.service";
 import {Article} from "../../Article";
 import {TopArticlesExtractPipe} from "../../Pipes/TopArticlesExtract/top-articles-extract.pipe";
-import {firstValueFrom, Subscription} from "rxjs";
+import {filter, firstValueFrom, pairwise, Subscription} from "rxjs";
+import {ActivatedRoute, Router, RoutesRecognized} from "@angular/router";
 
 
 @Component({
@@ -15,6 +16,9 @@ import {firstValueFrom, Subscription} from "rxjs";
   styleUrls: ['./all-articles.component.css']
 })
 export class AllArticlesComponent implements OnInit {
+
+  is_search: boolean | undefined;
+
 
   //pagination stuff
 
@@ -31,16 +35,29 @@ export class AllArticlesComponent implements OnInit {
 
 
   constructor(private articlesService: ArticlesService,
-              public pipe: TopArticlesExtractPipe) {
+              public pipe: TopArticlesExtractPipe,
+              private route: ActivatedRoute
+  ) {
 
+    // is this supposed to show search results?
+    this.is_search = this.is_search_page()
 
     // Define Promises
     this.PaginatedArticlesPromise =
-      firstValueFrom(
-      this.articlesService
-        .getArticlesPaginated()
-        .valueChanges
-    )
+
+      this.is_search ?
+
+        firstValueFrom(
+          this.articlesService.search_keyword(
+            this.route.snapshot.paramMap.get('term') || ""
+          )
+        )
+        :
+        firstValueFrom(
+          this.articlesService
+            .getArticlesPaginated()
+            .valueChanges
+        )
 
     this.ArticlesTotalLengthPromise = this.articlesService
       .getCount
@@ -48,7 +65,6 @@ export class AllArticlesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log("ngOnInit")
 
     Promise.all(
       [this.ArticlesTotalLengthPromise]
@@ -80,7 +96,7 @@ export class AllArticlesComponent implements OnInit {
   }
 
   extractInfo = (result: any) => {
-    console.log("Extracting Info and resetting list")
+
     let res: any[] = result["data"]["articles"]["data"];
 
     this.articles = res.map(article => {
@@ -91,7 +107,9 @@ export class AllArticlesComponent implements OnInit {
       let main_img = this.pipe.transform(article, "main_image");
       return new Article(id, slug, title, preamble, main_img);
     })
+  }
 
-
+  is_search_page(): boolean {
+    return (location.pathname.split("?")[0] === "/search")
   }
 }

@@ -16,6 +16,7 @@ export const routes: Routes = [
   {path: 'articles', component: AllArticlesComponent},
   {path: 'about-chef', component: AboutChefComponent},
   {path: 'side-menu', component: SideMenuComponent},
+  {path: 'search', component: AllArticlesComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '**', component: NotfoundComponent}
 ]

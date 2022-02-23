@@ -30,6 +30,8 @@
       <img src="assets/icons/1024px-Search_Icon.svg.png" alt="صورة ايقونة البحث"
            style="height: 25px; width: 25px; position: absolute; opacity: 40%; top: 0; bottom: 0; margin-top: auto; margin-bottom: auto; margin-right: 10px">
       <input type="text"
+             [(ngModel)]="searchterm"
+             (keyup.enter)="search()"
              style="padding-right: 40px; width: 200px; height: 35px; border-radius: 5px; outline: none; border: 1px solid var(--lightgray)" placeholder="ابحث">
     </div>
 

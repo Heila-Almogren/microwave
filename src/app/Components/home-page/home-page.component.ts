@@ -55,14 +55,9 @@ export class HomePageComponent implements OnInit {
 
           this.loading = result.loading;
           this.errors = result.errors;
-
-
-
-
-
-
-
       });
+
+
 
 
   }
