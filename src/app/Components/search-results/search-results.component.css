@@ -1,0 +1,25 @@
+ngb-pagination ::ng-deep ul > li:not(.active) > a {
+  background-color: white !important;
+  color: black;
+  border: none;
+  font-family: "XB Shafigh", serif;
+}
+
+ngb-pagination ::ng-deep ul > li.active > a {
+  background-color: black !important;
+  border: none;
+  justify-self: center;
+  outline: none;
+}
+
+ngb-pagination ::ng-deep ul {
+  justify-content: center;
+}
+
+ngb-pagination ::ng-deep ul:focus {
+  outline: none;
+}
+
+.page-link .ng-star-inserted ::ng-deep {
+  outline: none;
+}

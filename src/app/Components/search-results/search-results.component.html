@@ -4,18 +4,16 @@
 
     style="width: 70%; max-width: 800px; margin: auto; display: flex; flex-direction: row; justify-content: space-between; align-items: center">
     <div style="font-size: 25px">
-      جميع المقالات
+      نتائج البحث
     </div>
 
 
   </div>
-
+  <div class="full-width centered-text" *ngIf="articles && articles.length==0">لا يوجد نتائج</div>
   <articles-list [loading]="articles==undefined" [articles]="articles"></articles-list>
-
 
 </div>
 <br>
-<ngb-pagination [collectionSize]="this.totalPages" [pageSize]="pageSize" [(page)]="page" (pageChange)="changePage()" [rotate]="true" aria-label="Default pagination"></ngb-pagination>
 
 <br><br><br>
 

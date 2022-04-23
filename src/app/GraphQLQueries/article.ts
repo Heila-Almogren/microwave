@@ -9,6 +9,13 @@ query($id: ID) {
         preamble
         article_body
         publish_date
+        main_image {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
       }
     }
   }

@@ -8,6 +8,7 @@ import {AllArticlesComponent} from "./Components/all-articles/all-articles.compo
 import {AboutChefComponent} from "./Components/about-chef/about-chef.component";
 import {SideMenuComponent} from "./Components/side-menu/side-menu.component";
 import {NotfoundComponent} from "./Components/notfound/notfound.component";
+import {SearchResultsComponent} from "./Components/search-results/search-results.component";
 
 
 export const routes: Routes = [
@@ -16,7 +17,7 @@ export const routes: Routes = [
   {path: 'articles', component: AllArticlesComponent},
   {path: 'about-chef', component: AboutChefComponent},
   {path: 'side-menu', component: SideMenuComponent},
-  {path: 'search', component: AllArticlesComponent},
+  {path: 'search', component: SearchResultsComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '**', component: NotfoundComponent}
 ]

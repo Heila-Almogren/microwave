@@ -1,9 +1,9 @@
 import gql from "graphql-tag";
 
-const ALL_ARTICLES = gql`
-query($offset: Int) {
-  articles(sort: "id:asc", pagination: { limit: 4, start: $offset}) {
-    data {
+const GET_ARTICLES_BY_IDS = gql`
+query($ids: [ID]) {
+  articles (filters: {id: {in: $ids}}) {
+        data {
       id
         attributes {
         slug
@@ -22,6 +22,4 @@ query($offset: Int) {
 }
 `
 ;
-export default ALL_ARTICLES;
-
-
+export default GET_ARTICLES_BY_IDS;

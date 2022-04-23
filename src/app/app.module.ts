@@ -29,6 +29,8 @@ import { NotfoundComponent } from './Components/notfound/notfound.component';
 import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from "@angular/common";
 import {AppRoutingModule, routes} from './app-routing.module';
 import {APP_BASE_HREF} from '@angular/common';
+import { ArticlesListComponent } from './Components/articles-list/articles-list.component';
+import { SearchResultsComponent } from './Components/search-results/search-results.component';
 
 
 
@@ -51,7 +53,9 @@ import {APP_BASE_HREF} from '@angular/common';
     SideMenuComponent,
     TopArticlesSkeletonComponent,
     DateLocalizerPipe,
-    NotfoundComponent
+    NotfoundComponent,
+    ArticlesListComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,

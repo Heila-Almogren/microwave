@@ -7,6 +7,9 @@ import MAIN_ARTICLES_QUERY from "../../GraphQLQueries/main_articles";
 import ALL_ARTICLES from "../../GraphQLQueries/all_articles";
 import Articles_ids from "../../GraphQLQueries/articles_ids";
 import {resolve} from "@angular/compiler-cli";
+import search_query from "../../GraphQLQueries/search_query";
+import GET_ARTICLES_BY_IDS from "../../GraphQLQueries/search_query";
+import {GraphQLList} from "graphql";
 
 
 @Injectable({
@@ -84,7 +87,6 @@ export class ArticlesService {
   getAllArticlesIDs(): Observable<any> {
 
 
-
     return this.apolloClient
       .watchQuery<article_model>({
         query: Articles_ids
@@ -94,7 +96,20 @@ export class ArticlesService {
 
   }
 
-  getCount = new Promise<number>((resolve, reject)=>{
+  getArticlesByIDs(ids_list: any[]): QueryRef<any> {
+
+    return this.apolloClient
+      .watchQuery<article_model>({
+        query: GET_ARTICLES_BY_IDS,
+        variables: {
+          ids: ids_list
+        }
+      })
+
+
+  }
+
+  getCount = new Promise<number>((resolve, reject) => {
 
 
     this.apolloClient
@@ -102,8 +117,7 @@ export class ArticlesService {
         query: Articles_ids,
       })
       .valueChanges
-      .subscribe(res=>{
-
+      .subscribe(res => {
         resolve(res.data.articles.data.length);
       })
 
@@ -119,7 +133,7 @@ export class ArticlesService {
         variables: {
           offset: 0
         },
-        fetchPolicy: 'cache-first',
+        fetchPolicy: 'cache-first'
       })
 
   }

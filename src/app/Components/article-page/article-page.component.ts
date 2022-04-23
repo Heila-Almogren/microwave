@@ -23,6 +23,7 @@ export class ArticlePageComponent implements OnInit {
   publish_date: string | undefined;
   x: string | undefined;
   private articleSubscription: Subscription | undefined;
+  main_image: string | undefined;
 
 
   constructor(private apollo: Apollo, private route: ActivatedRoute,
@@ -41,6 +42,7 @@ export class ArticlePageComponent implements OnInit {
         this.title = this.pipe.transform(res, "article_title")
         this.preamble = this.pipe.transform(res, "preamble")
         this.body = this.pipe.transform(res, "article_body")
+        this.main_image = this.pipe.transform(res,"article_image")
         this.publish_date = new Date(this.pipe.transform(res, "publish_date")).toLocaleDateString('ar-SA', {
           weekday: 'long',
           year: 'numeric',

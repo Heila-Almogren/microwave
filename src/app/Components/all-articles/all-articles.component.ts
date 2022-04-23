@@ -17,7 +17,7 @@ import {ActivatedRoute, Router, RoutesRecognized} from "@angular/router";
 })
 export class AllArticlesComponent implements OnInit {
 
-  is_search: boolean | undefined;
+
 
 
   //pagination stuff
@@ -39,20 +39,11 @@ export class AllArticlesComponent implements OnInit {
               private route: ActivatedRoute
   ) {
 
-    // is this supposed to show search results?
-    this.is_search = this.is_search_page()
 
     // Define Promises
     this.PaginatedArticlesPromise =
 
-      this.is_search ?
 
-        firstValueFrom(
-          this.articlesService.search_keyword(
-            this.route.snapshot.paramMap.get('term') || ""
-          )
-        )
-        :
         firstValueFrom(
           this.articlesService
             .getArticlesPaginated()
@@ -109,7 +100,7 @@ export class AllArticlesComponent implements OnInit {
     })
   }
 
-  is_search_page(): boolean {
-    return (location.pathname.split("?")[0] === "/search")
-  }
+  // is_search_page(): boolean {
+  //   return (location.pathname.split("?")[0] === "/search")
+  // }
 }
