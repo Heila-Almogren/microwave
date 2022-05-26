@@ -61,9 +61,10 @@ export class HomePageComponent implements OnInit {
             name: 'keywords',
             content: 'ميكروويف, مدونة تقنية',
           },
-          { name: 'title', content: 'ميكرويف | Microwave' },
+          { name: 'title', property:"og:title", content: 'ميكرويف | Microwave' },
           { name: 'author', content: 'Heila Al-mogren' },
-          { name: 'description', content: 'المعلومة السريعة اللذيذة لمن لا يجيد طبخ التقنية!' },
+          { name: 'description', property:"og:description", content: 'المعلومة السريعة اللذيذة لمن لا يجيد طبخ التقنية!' },
+          { name: 'image', property:"og:image", content: 'https://res.cloudinary.com/microwave/image/upload/v1653540600/Screen_Shot_2022-05-26_at_7.48.35_AM_alvmka.png' },
         ]);
 
           this.loading = result.loading;
