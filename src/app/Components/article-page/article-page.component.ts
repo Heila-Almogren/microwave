@@ -6,7 +6,7 @@ import {ActivatedRoute, NavigationStart} from "@angular/router";
 import {Article} from "../../Article";
 import {ArticlesService} from "../../Services/Articles/articles.service";
 import {ArticleExtractPipe} from "../../Pipes/ArticleExtract/article-extract.pipe";
-import {DomSanitizer} from "@angular/platform-browser";
+import {DomSanitizer, Meta} from "@angular/platform-browser";
 
 @Component({
   selector: 'article-page',
@@ -29,7 +29,8 @@ export class ArticlePageComponent implements OnInit {
   constructor(private apollo: Apollo, private route: ActivatedRoute,
               private articlesService: ArticlesService,
               public pipe: ArticleExtractPipe,
-              public sanitizer: DomSanitizer
+              public sanitizer: DomSanitizer,
+              private metaTagService: Meta
   ) {
   }
 
@@ -42,7 +43,7 @@ export class ArticlePageComponent implements OnInit {
         this.title = this.pipe.transform(res, "article_title")
         this.preamble = this.pipe.transform(res, "preamble")
         this.body = this.pipe.transform(res, "article_body")
-        this.main_image = this.pipe.transform(res,"article_image")
+        this.main_image = this.pipe.transform(res, "article_image")
         this.publish_date = new Date(this.pipe.transform(res, "publish_date")).toLocaleDateString('ar-SA', {
           weekday: 'long',
           year: 'numeric',
@@ -50,7 +51,20 @@ export class ArticlePageComponent implements OnInit {
           day: 'numeric'
         });
 
-        console.log(res)
+        this.metaTagService.addTags([
+          {
+            name: 'keywords',
+            content: this.title || "",
+          },
+          { name: 'title', property:"og:title", content: this.title || "" },
+          { name: 'description', property:"og:description", content: this.title || "" },
+          { name: 'image', property:"og:image", content: this.main_image || "" },
+          { name: 'author', content: 'Heila Al-Mogren' },
+
+        ]);
+
+
+
       })
 
   }
