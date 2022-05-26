@@ -58,7 +58,7 @@ import { SearchResultsComponent } from './Components/search-results/search-resul
     SearchResultsComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
