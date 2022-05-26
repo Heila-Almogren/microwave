@@ -10,7 +10,9 @@
     "dev:ssr": "ng run microwave:serve-ssr",
     "serve:ssr": "node dist/microwave/server/main.js",
     "build:ssr": "ng build && ng run microwave:server",
-    "prerender": "ng run microwave:prerender"
+    "prerender": "ng run microwave:prerender",
+    "start:heroku": "node dist/server",
+    "postinstall": "npm run build:ssr"
   },
   "private": true,
   "dependencies": {
