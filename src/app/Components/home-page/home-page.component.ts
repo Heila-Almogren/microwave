@@ -7,6 +7,8 @@ import MAIN_ARTICLES_QUERY from "../../GraphQLQueries/main_articles";
 import {ApolloQueryResult} from "@apollo/client/core/types";
 import {ArticleExtractPipe} from "../../Pipes/ArticleExtract/article-extract.pipe";
 import {TopArticlesExtractPipe} from "../../Pipes/TopArticlesExtract/top-articles-extract.pipe";
+import { Meta } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-home-page',
@@ -28,7 +30,8 @@ export class HomePageComponent implements OnInit {
 
   constructor(private articlesService: ArticlesService,
               private apollo: Apollo,
-              public pipe:TopArticlesExtractPipe
+              public pipe:TopArticlesExtractPipe,
+              private metaTagService: Meta
   ) {
   }
 
@@ -52,6 +55,12 @@ export class HomePageComponent implements OnInit {
             return new Article(id, slug, title, preamble, main_img);
           })
           // .split('/uploads/').join('http://localhost:1337/uploads/');
+
+        this.metaTagService.addTags([
+
+          { name: 'author', content: 'Heila Al-Mogren' },
+
+        ]);
 
           this.loading = result.loading;
           this.errors = result.errors;
