@@ -59,13 +59,11 @@ export class HomePageComponent implements OnInit {
         this.metaTagService.addTags([
           {
             name: 'keywords',
-            content: 'Angular SEO Integration, Music CRUD, Angular Universal',
+            content: 'ميكروويف, مدونة تقنية',
           },
-          { name: 'robots', content: 'index, follow' },
-          { name: 'author', content: 'Digamber Singh' },
-          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-          { name: 'date', content: '2019-10-31', scheme: 'YYYY-MM-DD' },
-          { charset: 'UTF-8' },
+          { name: 'title', content: 'ميكرويف | Microwave' },
+          { name: 'author', content: 'Heila Al-mogren' },
+          { name: 'description', content: 'المعلومة السريعة اللذيذة لمن لا يجيد طبخ التقنية!' },
         ]);
 
           this.loading = result.loading;
