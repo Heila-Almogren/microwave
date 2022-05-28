@@ -12,6 +12,7 @@ export class NewsletterSubscriptionComponent implements OnInit {
   resultMessage: string = "";
   showResult: boolean = false;
   subscriberEmail: string = "";
+  loading = false;
 
   constructor(private newsletterSubscriptionService: NewsletterSubscriptionService) {
   }
@@ -27,8 +28,10 @@ export class NewsletterSubscriptionComponent implements OnInit {
       this.resultMessage = "همم.. متأكد من الإيميل؟ 👀"
 
     }else{
-      this.newsletterSubscriptionService.subscribeToNewsletter(this.subscriberEmail).subscribe(res => {
 
+      this.loading = true;
+        this.newsletterSubscriptionService.subscribeToNewsletter(this.subscriberEmail).subscribe(res => {
+            this.loading = false;
           console.log("email: " + this.subscriberEmail)
           this.showResult = true;
           console.log("success: " + res.success)
@@ -36,6 +39,7 @@ export class NewsletterSubscriptionComponent implements OnInit {
           this.resultMessage = res.description
         },
         error => {
+          this.loading = false;
           this.resultMessage = "حدث خطأ ما :("
         })
     }
