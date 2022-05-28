@@ -35,7 +35,7 @@ export class ArticlesService {
   }
 
   search_keyword(term?: string): Observable<any> {
-    let prod_url = "https://microwave-backend.herokuapp.com/strapi_api_key"
+    let prod_url = "https://microwave-backend.herokuapp.com/search"
     let dev_url = "http://localhost:9000/search"
 
     let headers = {
@@ -43,7 +43,7 @@ export class ArticlesService {
       'Access-Control-Allow-Origin': '*'
     }
 
-    return this.http.get(dev_url, {headers, 'responseType': 'text', params: new HttpParams().set('term', term || "")})
+    return this.http.get(prod_url, {headers, 'responseType': 'text', params: new HttpParams().set('term', term || "")})
 
   }
 
