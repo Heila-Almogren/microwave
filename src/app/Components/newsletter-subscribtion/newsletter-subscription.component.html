@@ -9,7 +9,7 @@
   <br>
   <br><br>
   <div
-    class="Shafigh"
+    class="Baloo"
     style="margin: auto; font-size: 20px;width: 70%">
     اشترك في النشرة البريدية ليصلك موضوع جديد كل جمعة 👩🏻‍🍳
 
@@ -29,7 +29,7 @@
         id="subscribe-button"
         type="button"
         (click)="subscribeToNewsletter($event)"
-        class="Shafigh simple-back-border"
+        class="Baloo simple-back-border"
         style="
       cursor:pointer ;
       font-size: 20px; height: 40px; width: 70px; background-color: black; color: white"
@@ -39,12 +39,18 @@
 
 
   </div>
-  <div *ngIf="showResult" class="Shafigh" style="padding: 5px;">
-    {{this.resultMessage}}
+
+  <div style="height: 30px">
+    <div *ngIf="showResult" class="Baloo" style="padding: 5px;">
+
+      {{this.resultMessage}}
+
+    </div>
+    <div *ngIf="loading" class="Baloo" style="padding: 5px;">
+      <div class="lds-dual-ring"></div>
+    </div>
   </div>
-  <div *ngIf="loading" class="Shafigh" style="padding: 5px;">
-    <div class="lds-dual-ring"></div>
-  </div>
+
 
   <br>
   <br><br>

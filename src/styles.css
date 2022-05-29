@@ -1,4 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Blaka&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Harmattan&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap');
+
+
 @font-face {
   font-family: Yasser;
   src: url("assets/fonts/Yaseer/ArbFONTS-FF Yaseer.otf");
@@ -18,7 +23,6 @@
   font-family: "Boutros Bold";
   src: url("assets/fonts/Boutros/BoutrosNewsH1-Bold.ttf");
 }
-
 
 * {
   box-sizing: border-box;
@@ -72,7 +76,7 @@ html {
 
 ::placeholder {
   color: #C1C1C1;
-  font-family: "XB Shafigh", serif;
+  font-family: 'Baloo Bhaijaan 2', cursive;;
 }
 
 img {
@@ -93,16 +97,20 @@ figure {
   --lightgray: #d3d3d3;
 }
 
-.Shafigh {
-  font-family: 'XB Shafigh', serif;
+.Baloo {
+  font-family: 'Baloo Bhaijaan 2', cursive;
 }
 
-.Shafigh-bold {
-  font-family: 'XB Shafigh Bold', serif;
+.Baloo-bold {
+  font-family: 'Baloo Bhaijaan 2', cursive;
 }
 
 .Boutros-Bold{
-  font-family: "Boutros Bold", serif;
+  font-family: 'Baloo Bhaijaan 2', cursive;
+}
+
+.Blaka{
+  font-family: 'Blaka', cursive;
 }
 
 .full-width {

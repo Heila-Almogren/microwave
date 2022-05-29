@@ -11,10 +11,10 @@
 }
 @media screen and (min-width: 499px) { /*desktop*/
 .blog-title {
-  font-size: 64px;
+  font-size: 120px;
 }
   .blog-motto {
-    font-size: 28px;
+    font-size: 20px;
 }
 
   .utility-bar {
