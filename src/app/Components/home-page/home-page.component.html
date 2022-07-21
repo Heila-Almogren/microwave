@@ -3,7 +3,7 @@
 <br>
 <br><br>
 <latest-article routerLink="/article/{{this.data[0]?.id}}" [article]="this.data[0]"></latest-article>
-<!--<newsletter-subscription></newsletter-subscription>-->
+<newsletter-subscription></newsletter-subscription>
 <top-articles [articles]="this.data.slice(1)" [loading]="this.data.length == 0"></top-articles>
 <div style="height: 200px">
   &nbsp;
