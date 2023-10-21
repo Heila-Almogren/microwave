@@ -1,0 +1,27 @@
+<div class="latest-article-container full-width">
+  <div
+    class="latest-article-body Boutros-Bold"
+    [class.loading]="responseState===ResponseState.PENDING">
+    <ng-container *ngIf="responseState===ResponseState.FULFILLED">
+      <div class="latest-article-info" routerLink="/article/{{articleId}}">
+        <div class="latest-article-label"
+             *ngIf="article">
+          الأخيرة
+        </div>
+        <div class="latest-article-title">
+          {{article?.article_title}}
+        </div>
+        <div class="latest-article-preamble">
+          {{article?.preamble}}
+          <p class="continue-reading-symbol">أكمل القراءة ←</p>
+        </div>
+      </div>
+
+    </ng-container>
+  </div>
+  <div
+    class="latest-article-image"
+    [class.loading]="responseState===ResponseState.PENDING"
+    [ngStyle]="{'background-image': 'url('+environment.GraphQLServerURL+article?.main_image?.data?.attributes?.url+')', 'background-position': 'center'}">
+  </div>
+</div>

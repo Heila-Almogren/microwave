@@ -1,0 +1,28 @@
+<div class="utility-bar Baloo">
+
+  <div
+    class="header-menu-icon" (click)="ToggleMenu()">
+
+    <fa-icon [icon]="faBars"></fa-icon>
+
+  </div>
+
+  <div
+    *ngIf="MenuShown"
+    class="header-menu">
+
+    <div
+      class="header-menu-items">
+
+      <div *ngFor="let headerMenuItem of headerMenuItems" class="header-menu-item"
+           routerLink="/{{headerMenuItem.route}}"
+           routerLinkActive="is-active">{{headerMenuItem.label}}</div>
+
+    </div>
+    <search-input>
+
+    </search-input>
+
+  </div>
+
+</div>

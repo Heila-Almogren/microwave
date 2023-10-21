@@ -1,0 +1,18 @@
+<div class="search-box">
+
+  <img src="../../../../assets/icons/search-black.svg" alt="صورة ايقونة البحث"
+       (click)="search_input.focus()"
+       class="search-icon-image">
+
+  <input
+    #search_input
+    type="text"
+    class="search-input"
+    [placeholder]="'ابحث'"
+    [(ngModel)]="searchTerm"
+    (keyup.enter)="search()">
+
+  <div *ngIf="searchTerm" (click)="searchTerm=''" class="close-icon">
+    ×
+  </div>
+</div>

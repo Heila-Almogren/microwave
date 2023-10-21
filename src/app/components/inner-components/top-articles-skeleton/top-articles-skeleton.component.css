@@ -1,0 +1,33 @@
+.skeleton-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  box-sizing: border-box;
+  padding: 10px;
+  flex-wrap: nowrap;
+  width: 350px;
+  line-height: 25px
+}
+
+.latest-article-image-skeleton {
+  height: 300px;
+  margin-bottom: 20px
+}
+
+.latest-article-title-skeleton {
+  font-size: 25px;
+  margin-bottom: 5px;
+  font-weight: lighter;
+  height: 30px
+}
+
+.latest-article-preamble-skeleton {
+  font-size: 15px;
+  height: 50px
+}

@@ -1,0 +1,39 @@
+.blog-title {
+  width: 100%;
+  font-weight: bolder;
+  margin-top: 70px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.blog-motto {
+  margin: auto auto 50px;
+  max-width: 80%;
+  text-align: center;
+  color: var(--gray);
+}
+
+
+@media screen and (min-width: 500px) {
+
+  .blog-title {
+    font-size: 120px;
+  }
+
+  .blog-motto {
+    font-size: 20px;
+  }
+
+}
+
+@media screen and (max-width: 499px) {
+
+  .blog-title {
+    font-size: 90px;
+  }
+
+  .blog-motto {
+    font-size: 14px;
+  }
+
+}

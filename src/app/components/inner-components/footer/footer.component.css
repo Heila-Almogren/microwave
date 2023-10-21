@@ -1,0 +1,17 @@
+:host {
+  position: relative;
+  bottom: 0;
+}
+
+.container {
+  padding-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  direction: ltr;
+}
+
+.angular-logo {
+  width: 22px
+}

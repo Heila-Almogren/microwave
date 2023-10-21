@@ -1,0 +1,35 @@
+
+top-article {
+  cursor: pointer;
+}
+
+top-article:hover {
+  transition: transform 0.25s;
+}
+
+top-article:hover {
+  transform: scale(1.01);
+}
+
+.top-articles {
+  overflow: scroll;
+  display: flex;
+  width: 100%;
+}
+
+@media screen and (min-width: 499px) {
+
+  .top-articles {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  .top-articles {
+    flex-direction: column;
+    justify-content: center;
+  }
+}

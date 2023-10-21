@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  line-height: 25px;
+}
+
+.title {
+  font-size: 25px;
+  margin-bottom: 5px;
+  font-weight: lighter;
+  height: fit-content;
+  line-height: 30px
+}
+
+.preamble {
+  font-size: 15px;
+  height: fit-content;
+}
+
+.latest-article-image {
+  height: 300px;
+  width: 100%;
+  margin-bottom: 20px;
+  background-size: cover;
+  background-position: center
+}
+
+@media screen and (min-width: 499px) {
+
+  .container {
+
+    width: 300px;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+
+    width: 100%;
+  }
+
+}

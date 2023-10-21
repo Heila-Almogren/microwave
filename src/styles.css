@@ -24,36 +24,13 @@
   src: url("assets/fonts/Boutros/BoutrosNewsH1-Bold.ttf");
 }
 
-* {
-  box-sizing: border-box;
-  direction: rtl;
-  /*border: 1px solid blue;*/
-}
-
-*:focus {
-  outline: none;
-}
-
-a {
-  text-decoration: none !important;
-  color: inherit;
-}
-
-:root {
-  --yellow: #ffcc00;
-}
-
 body {
 
-  margin: auto;
-  padding: 25px;
   width: 100%;
-  max-width: 1150px;
   height: 100%;
   box-sizing: border-box;
-
-
-
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -64,14 +41,19 @@ html {
   height: 100%;
 }
 
-.input-box {
-  padding: 5px;
-  font-size: 20px;
-  border: 2px solid black;
-  border-radius: 9px;
-  height: 40px;
-  font-family: Yasser, serif;
-  width: 250px
+
+* {
+  box-sizing: border-box;
+  direction: rtl;
+}
+
+*:focus {
+  outline: none;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit;
 }
 
 ::placeholder {
@@ -85,12 +67,8 @@ img {
 }
 
 figure {
-
-
   width: 100%;
-
 }
-
 
 :root {
   --gray: #808080;
@@ -125,23 +103,14 @@ figure {
   text-align: center;
 }
 
-.dev-border {
-  border: 1px solid red;
-}
-
 .gray-text {
   color: var(--gray);
 }
 
-.simple-gray-border {
-  border: 1px solid var(--gray)
-}
 
 .simple-back-border {
   border: 1px solid black
 }
-
-
 
 .loading {
   background-color: #F5F5F5;
@@ -170,3 +139,10 @@ figcaption  {
   font-size: 15px; max-width: 600px; margin: auto; text-align: justify;
 }
 
+.hoverable:hover {
+  opacity: 90%
+}
+
+.page-title {
+  font-size: 25px
+}

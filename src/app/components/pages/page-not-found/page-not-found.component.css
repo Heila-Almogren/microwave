@@ -1,0 +1,10 @@
+* {
+  width: fit-content;
+  margin: auto;
+  display: block;
+}
+
+img {
+
+  max-width: 20%;
+}

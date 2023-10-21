@@ -1,0 +1,20 @@
+<div
+  class="container Boutros-Bold hoverable">
+
+  <div
+    class="latest-article-image"
+    [style.background-image]="'url('+environment.GraphQLServerURL+article?.main_image?.data?.attributes?.url+')'">
+  </div>
+
+  <div>
+    <div class="title">
+      {{article?.article_title}}
+    </div>
+
+    <div class="preamble gray-text">
+      {{article?.preamble}}
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,11 @@
+<div class="container Baloo">
+
+  <div class="page-title">
+    نتائج البحث
+  </div>
+  <div class="full-width centered-text" *ngIf="articles && articles.length==0">
+    لا يوجد نتائج 🫣
+
+  </div>
+  <articles-list [loading]="articles==undefined" [articles]="articles"></articles-list>
+</div>

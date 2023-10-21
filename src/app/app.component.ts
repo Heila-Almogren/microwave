@@ -1,9 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Environment} from "@angular/compiler-cli/src/ngtsc/typecheck/src/environment";
-import {environment} from "../environments/environment";
+import {Component} from '@angular/core';
 import {slideInAnimation} from "./route-animation";
-import {NavigationStart, Router} from "@angular/router";
-import {NavigationEvent} from "@ng-bootstrap/ng-bootstrap/datepicker/datepicker-view-model";
 
 
 @Component({
@@ -13,21 +9,7 @@ import {NavigationEvent} from "@ng-bootstrap/ng-bootstrap/datepicker/datepicker-
   animations: [ slideInAnimation ]
 })
 
-
-export class AppComponent implements OnInit {
-  constructor (private router: Router) { }
-
-  ngOnInit() {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationStart) {
-        // console.log(event.url)
-        // if (!!event.url && event.url.match(/^\/#/)) {
-        //   this.router.navigate([event.url.replace('/#', '')]);
-        // }
-      }
-    });
-  }
-}
+export class AppComponent  {}
 
 
 

@@ -1,0 +1,9 @@
+<ng-container *ngIf="responseState!=ResponseState.ERROR else error">
+  <latest-article [articleId]="this.articles[0]?.id" [article]="this.articles[0]?.attributes" [responseState]="responseState"></latest-article>
+  <br>
+  <top-articles [articles]="this.articles?.slice(1)" [responseState]="responseState"></top-articles>
+</ng-container>
+
+<ng-template #error>
+  <error-message></error-message>
+</ng-template>

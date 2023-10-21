@@ -1,0 +1,7 @@
+<ng-container [ngSwitch]="responseState">
+  <div *ngSwitchCase="ResponseState.FULFILLED" [innerHTML]="summary" class="Baloo brief-text"></div>
+  <div *ngSwitchCase="ResponseState.PENDING">🧠</div>
+  <error-message *ngSwitchCase="ResponseState.ERROR"></error-message>
+</ng-container>
+
+

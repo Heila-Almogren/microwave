@@ -1,0 +1,22 @@
+.app-container {
+  margin: auto;
+  min-height: 100%;
+}
+
+.content {
+  /*padding-top: 30px;*/
+}
+
+@media screen and (max-width: 499px) {
+  .content {
+    padding:10px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .app-container {
+    padding:50px;
+    max-width: 1150px;
+  }
+
+}

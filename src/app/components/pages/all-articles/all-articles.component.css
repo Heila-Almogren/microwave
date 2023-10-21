@@ -1,0 +1,22 @@
+.container {
+  width: 70%;
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 25px
+}
+
+pagination-controls {
+  display: block;
+  width: fit-content;
+  margin: auto
+}
+
+
+#all-articles-paginator ::ng-deep .ngx-pagination .current {
+  background: black;
+}

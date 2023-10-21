@@ -1,159 +1,134 @@
 import {Injectable} from "@angular/core";
-import {HttpClient, HttpParams} from "@angular/common/http";
-import {firstValueFrom, Observable, Subscription} from "rxjs";
-import {Apollo, QueryRef} from "apollo-angular";
-import ARTICLE from "../../GraphQLQueries/article";
-import MAIN_ARTICLES_QUERY from "../../GraphQLQueries/main_articles";
-import ALL_ARTICLES from "../../GraphQLQueries/all_articles";
-import Articles_ids from "../../GraphQLQueries/articles_ids";
-import {resolve} from "@angular/compiler-cli";
-import search_query from "../../GraphQLQueries/search_query";
-import GET_ARTICLES_BY_IDS from "../../GraphQLQueries/search_query";
-import {GraphQLList} from "graphql";
+import {HttpClient,} from "@angular/common/http";
+import {from, Observable, tap} from "rxjs";
+import {Apollo,} from "apollo-angular";
+import {
+  GET_ARTICLE_BY_ID,
+  LATEST_ARTICLES_QUERY,
+  ALL_ARTICLES_QUERY,
+  ALL_ARTICLES_IDS,
+  SEARCH_ARTICLES_BY_KEYWORD
+} from "../../types/GraphQLQueries";
+import {ApolloQueryResult} from "@apollo/client/core/types";
+import {map} from 'rxjs/operators';
+import {
+  ArticleEntity,
+  ArticleEntityResponse,
+  ArticleEntityResponseCollection
+} from "../../types/models/Article";
+import {QueryResponseWrapper} from "../../types/QueryResponseWrapper";
 
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class ArticlesService {
 
-  constructor(private http: HttpClient, private apolloClient: Apollo) {
+  constructor(private http: HttpClient, private apolloClient: Apollo) {}
 
-  }
-
-  getStrapiAPIKey(): Observable<any> {
-    let prod_url = "https://microwave-backend.herokuapp.com/strapi_api_key"
-    let dev_url = "http://localhost:9000/strapi_api_key"
-
-    let headers = {
-      'Content-Type': '*',
-      'Access-Control-Allow-Origin': '*'
-    }
-
-    return this.http.get(prod_url, {headers, 'responseType': 'text'})
-  }
-
-  search_keyword(term?: string): Observable<any> {
-    let prod_url = "https://microwave-backend.herokuapp.com/search"
-    let dev_url = "http://localhost:9000/search"
-
-    let headers = {
-      'Content-Type': '*',
-      'Access-Control-Allow-Origin': '*'
-    }
-
-    return this.http.get(prod_url, {headers, 'responseType': 'text', params: new HttpParams().set('term', term || "")})
-
-  }
-
-
-  // getAllArticles(): Observable<any> {
-  //
-  //
-  //   return this.getStrapiAPIKey().pipe(mergeMap(res => {
-  //
-  //     let headers = {
-  //       'Authorization': `Bearer ${res}`
-  //     }
-  //
-  //     return this.http.get('http://localhost:1337/api/articles', {headers, 'responseType': 'text'})
-  //   }))
-  // }
-
-  getArticle(id: string): Observable<any> {
-
+  getArticleById(id: string): Observable<ArticleEntity> {
 
     return this.apolloClient
-      .watchQuery<any>({
-        query: ARTICLE,
-        variables: {"id": id}
+      .watchQuery<QueryResponseWrapper<ArticleEntityResponse>>({
+        query: GET_ARTICLE_BY_ID,
+        variables: {"id": id},
+        errorPolicy: 'all',
       })
       .valueChanges
+      .pipe(
+        map((res: ApolloQueryResult<QueryResponseWrapper<ArticleEntityResponse>>) => res.data["article"].data))
   }
 
 
-  getTopArticles(): Observable<any> {
-
+  getLatestArticles(max: number = 4) {
 
     return this.apolloClient
-      .watchQuery<any[]>({
-        query: MAIN_ARTICLES_QUERY
+      .watchQuery<QueryResponseWrapper<ArticleEntityResponseCollection>>({
+        query: LATEST_ARTICLES_QUERY,
+        variables: {"max": max},
+        errorPolicy: 'all'
       })
       .valueChanges
+      .pipe(
+        map((res: ApolloQueryResult<QueryResponseWrapper<ArticleEntityResponseCollection>>) => res.data["articles"].data))
   }
 
+  getAllArticlesPaginated(fetchMoreOffset: number = 0) {
 
-  getAllArticlesIDs(): Observable<any> {
-
-
-    return this.apolloClient
-      .watchQuery<article_model>({
-        query: Articles_ids
-      })
-      .valueChanges
-
-
-  }
-
-  getArticlesByIDs(ids_list: any[]): QueryRef<any> {
-
-    return this.apolloClient
-      .watchQuery<article_model>({
-        query: GET_ARTICLES_BY_IDS,
-        variables: {
-          ids: ids_list
-        }
-      })
-
-
-  }
-
-  getCount = new Promise<number>((resolve, reject) => {
-
-
-    this.apolloClient
-      .watchQuery<article_model>({
-        query: Articles_ids,
-      })
-      .valueChanges
-      .subscribe(res => {
-        resolve(res.data.articles.data.length);
-      })
-
-
-  })
-
-
-  getArticlesPaginated(): QueryRef<any> {
-
-    return this.apolloClient
-      .watchQuery<any[]>({
-        query: ALL_ARTICLES,
+    return from(this.apolloClient
+      .watchQuery<QueryResponseWrapper<ArticleEntityResponseCollection>>({
+        query: ALL_ARTICLES_QUERY,
         variables: {
           offset: 0
         },
-        fetchPolicy: 'cache-first'
+        fetchPolicy: 'cache-first',
+        errorPolicy: 'all',
       })
+      .fetchMore({
+        variables: {
+          offset: fetchMoreOffset
+        }
+      }))
+      .pipe(
+        map((res: ApolloQueryResult<QueryResponseWrapper<ArticleEntityResponseCollection>>) => res.data["articles"].data))
 
+  }
+
+  getAllArticlesCount(): Observable<number> {
+
+    return this.apolloClient
+      .watchQuery<QueryResponseWrapper<ArticleEntityResponseCollection>>({
+        query: ALL_ARTICLES_IDS,
+        errorPolicy: 'all',
+      })
+      .valueChanges
+      .pipe(
+        map((res: ApolloQueryResult<QueryResponseWrapper<ArticleEntityResponseCollection>>) => res.data["articles"].data.length))
+  }
+
+  SearchArticleByKeyword(keyword: string): Observable<ArticleEntity[]> {
+
+    return this.apolloClient
+      .watchQuery<QueryResponseWrapper<ArticleEntityResponseCollection>>({
+        query: SEARCH_ARTICLES_BY_KEYWORD,
+        variables: {
+          "filters": {"keywords": {"contains": keyword}}
+        },
+        errorPolicy: 'all',
+      })
+      .valueChanges
+      .pipe(
+        map((res: ApolloQueryResult<QueryResponseWrapper<ArticleEntityResponseCollection>>) => res.data["articles"].data))
   }
 
 }
 
-
-export class article {
-  data: any[];
-
-  constructor(data: any[]) {
-    this.data = data;
-  }
-}
+// let headers = {
+//   'Content-Type': '*',
+//   'Access-Control-Allow-Origin': '*'
+// }
+//
+// return this.http.get(environment.BackendServerURL+"/search", {headers, 'responseType': 'text', params: new HttpParams().set('term', term || "")})
 
 
-export class article_model {
-  articles: article;
-
-  constructor(articles: article) {
-    this.articles = articles;
-  }
-}
+// getAllArticles(): Observable<any> {
+//
+//
+//   return this.getStrapiAPIKey().pipe(mergeMap(res => {
+//
+//     let headers = {
+//       'Authorization': `Bearer ${res}`
+//     }
+//
+//     return this.http.get('http://localhost:1337/api/articles', {headers, 'responseType': 'text'})
+//   }))
+// }
+// getStrapiAPIKey(): Observable<any> {
+//
+//   let headers = {
+//     'Content-Type': '*',
+//     'Access-Control-Allow-Origin': '*'
+//   }
+//
+//   return this.http.get(environment.BackendServerURL + "/strapi_api_key", {headers, 'responseType': 'text'})
+// }

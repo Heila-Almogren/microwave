@@ -1,0 +1,39 @@
+<meta property="og:title" content='{{this.article?.article_title}}'>
+<meta property="og:image" content="{{this.article?.main_image?.data?.attributes?.url}}">
+<meta property="og:description" content="Personal site of Heila Al-mogren, a JS & Flutter Dev.">
+<meta name="description" content="Personal site of Heila Al-mogren, a JS & Flutter Dev.">
+
+<div style="width: 100%; box-sizing: border-box; padding: 30px">
+  <div style="direction: rtl; text-align: right; width: 100%;box-sizing: border-box; margin: auto;
+padding: 30px; border-radius: 30px;">
+
+
+    <div class="title Boutros-Bold" style="font-size: 44px; text-align: center; max-width: 600px; margin: auto;">
+      {{this.article?.article_title}}
+
+    </div>
+
+    <div class="Baloo gray-text centered-text" style="font-size: 15px; border-bottom: 1px solid var(--lightgray); max-width: 600px; margin: auto; padding-bottom: 5px">
+      <br>
+      {{this.article?.publish_date | date: 'longDate'}}
+    </div>
+    <br>
+
+    <div
+      [innerHTML]="(this.article?.preamble|| '') "
+      class="Boutros-Bold gray-text innertext body-text"
+    >
+    </div>
+
+    <br>
+  <div
+    [innerHTML]="this.article?.article_body"
+    class="Boutros-Bold gray-text innertext body-text"
+    >
+  </div>
+
+
+  </div>
+</div>
+
+

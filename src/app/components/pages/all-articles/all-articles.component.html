@@ -1,0 +1,24 @@
+<div class="Baloo container" *ngIf="responseState!=ResponseState.ERROR else error">
+  <div class="page-title">
+    جميع المقالات
+  </div>
+  <articles-list [loading]="responseState===ResponseState.PENDING"
+                 [articles]="articles"
+                 [pagination]="{ id: 'all-articles-paginator', itemsPerPage: pageSize, currentPage: page, totalItems: totalPages }">
+  </articles-list>
+
+
+  <br>
+
+  <pagination-controls
+    *ngIf="responseState===ResponseState.FULFILLED"
+    id="all-articles-paginator"
+    (pageChange)="changePage($event)"
+    [maxSize]="4"
+    previousLabel="السابق"
+    nextLabel="التالي"
+  ></pagination-controls>
+</div>
+<ng-template #error>
+  <error-message></error-message>
+</ng-template>
